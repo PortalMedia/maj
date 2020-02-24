@@ -176,9 +176,16 @@ public final class ClassDefinitionImpl
 	private PropertyDefinition unqiueIdentifier  = null;
 	private Class<?> javaImplementation = null;
 	private EmitXMLClassIDAs emitXMLClassId = EmitXMLClassIDAs.Parent;
+	private AUID originalAUID;
 	
 	private static Map<String, String> classNameMap = null;
-	
+
+	public void setOriginalAUID(AUID originalAUID) {
+		this.originalAUID = originalAUID;
+	}
+	public AUID getOriginalAUID() {
+		return this.originalAUID;
+	}
 	public final static void initalizeClassNameMap() {
 		if (AAFConstants.MAP_SS_CLASS_NAMES) {
 		

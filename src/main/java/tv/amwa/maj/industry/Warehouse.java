@@ -537,12 +537,14 @@ public final class Warehouse {
 			throw new NullPointerException("Cannot resolve a registered class definition using a null value.");
 		
 		byte[] classIdBytes = identification.getAUIDValue();
+		AUID originalAUID = identification;
 		if (classIdBytes[13] == 0x53) { // If a local set ID, convert to a class or element instance key
 			classIdBytes[13] = 0x06;
 			identification = new AUIDImpl(classIdBytes);
 		}
 		
-		return idToClass.get(identification);
+		ClassDefinition def = idToClass.get(identification);
+		return def;
 	}
 	
 	/**

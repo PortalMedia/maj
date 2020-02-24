@@ -37,6 +37,7 @@ public enum UnitType {
 	GenericContainerSound,
 	GenericContainerData,
 	GenericContainerCompound,
+	GenericStreamPartitionPack,
 	ContentPackageEssenceElement,
 	ContentPackageSystemItem,
 	ContentPackagePicture,

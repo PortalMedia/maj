@@ -258,6 +258,7 @@ public abstract class TypeDefinitionObjectReferenceImpl
 			return (UnresolvedReferenceValue) object;
 		
 		try {
+			Class c = referencedType.getTarget().getJavaImplementation();
 			if (!(referencedType.getTarget().getJavaImplementation().isInstance(object)))
 				throw new ClassCastException("Cannot cast the given object to a value that can be referenced from this object reference type definition.");
 		} catch (PropertyNotPresentException e) {

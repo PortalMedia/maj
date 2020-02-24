@@ -19,6 +19,7 @@ package tv.amwa.maj.extensions.quantel;
 import tv.amwa.maj.industry.Forge;
 import tv.amwa.maj.meta.TypeDefinitionVariableArray;
 import tv.amwa.maj.meta.impl.TypeDefinitionVariableArrayImpl;
+import tv.amwa.maj.model.StaticTrack;
 
 /**
  * <p>Extension type definitions defined for this package.</p>
@@ -42,5 +43,5 @@ public interface TypeDefinitions {
                     new byte[] { (byte) 0x94, (byte) 0xa1, (byte) 0xb6, (byte) 0xb2, (byte) 0xe4, 0x70, 0x0d, 0x30 }),
             "OperationGroupStrongReferenceVariableArray",
             tv.amwa.maj.industry.TypeDefinitions.OperationGroupStrongReference);
-
+    
 }

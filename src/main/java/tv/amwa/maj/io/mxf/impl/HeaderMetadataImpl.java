@@ -162,6 +162,9 @@ public class HeaderMetadataImpl
 				if (lastFillSize > 0) continue;
 
 				UL key = MXFBuilder.readKey(buffer);
+				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010100")) {
+					System.out.println("FOUND AS07CoreDMSFramework");
+				}
 				long length = MXFBuilder.readBERLength(buffer);
 				buffer.limit((int) (buffer.position() + length));
 

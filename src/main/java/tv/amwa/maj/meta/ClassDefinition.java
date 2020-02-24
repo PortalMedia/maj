@@ -107,6 +107,8 @@ import tv.amwa.maj.record.AUID;
 public interface ClassDefinition 
 	extends MetaDefinition,
 		WeakReferenceTarget {
+	public void setOriginalAUID(AUID originalAUID);
+	public AUID getOriginalAUID();
 
 	/** 
 	 * <p>Returns the AAF property definitions attached directly to the 

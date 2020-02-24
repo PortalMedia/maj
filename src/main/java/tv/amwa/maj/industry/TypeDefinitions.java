@@ -130,6 +130,7 @@ import tv.amwa.maj.meta.impl.TypeDefinitionStrongObjectReferenceImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionVariableArrayImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionWeakObjectReferenceImpl;
 import tv.amwa.maj.model.Component;
+import tv.amwa.maj.model.ContainerDefinition;
 import tv.amwa.maj.model.DefinitionObject;
 import tv.amwa.maj.model.EssenceData;
 import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;

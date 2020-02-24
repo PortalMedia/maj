@@ -206,7 +206,7 @@ public class MXFBuilder {
 
 		ClassDefinition fixedLengthClass = null;
 		FixedLengthPack fixedLengthValue = null;
-
+		boolean error = false;
 		try{
 			fixedLengthClass = Warehouse.lookForClass(key);
 			fixedLengthValue = (FixedLengthPack) fixedLengthClass.createInstance();
@@ -215,22 +215,24 @@ public class MXFBuilder {
 			throw new ClassCastException("The given key does not correspond to a metadata object that can be serialized as a fixed length pack. The key resolved to type " + fixedLengthClass.getName() + ".");
 		}
 		catch (NullPointerException npe) {
-			throw new NullPointerException("The given key of " + key.toString() + " is now known in the warehouse.");
+			error = true;
+			//throw new NullPointerException("The given key of " + key.toString() + " is now known in the warehouse.");
 		}
+		if(!error) {
+			for ( String propertyName : fixedLengthValue.getPackOrder()) {
 
-		for ( String propertyName : fixedLengthValue.getPackOrder()) {
-
-			try {
-				PropertyDefinition property = fixedLengthClass.lookupPropertyDefinition(propertyName);
-				TypeDefinition propertyType = property.getTypeDefinition();
-				PropertyValue propertyValue = propertyType.createFromBytes(buffer);
-				property.setPropertyValue(fixedLengthValue, propertyValue);
-			}
-			catch (BadParameterException bpe) {
-				continue;
-			}
-			catch (EndOfDataException eode) {
-				throw new EndOfDataException("Prematurely reached the end of the data buffer when reading a fixed length buffer for type " + fixedLengthClass.getName() + ".");
+				try {
+					PropertyDefinition property = fixedLengthClass.lookupPropertyDefinition(propertyName);
+					TypeDefinition propertyType = property.getTypeDefinition();
+					PropertyValue propertyValue = propertyType.createFromBytes(buffer);
+					property.setPropertyValue(fixedLengthValue, propertyValue);
+				}
+				catch (BadParameterException bpe) {
+					continue;
+				}
+				catch (EndOfDataException eode) {
+					throw new EndOfDataException("Prematurely reached the end of the data buffer when reading a fixed length buffer for type " + fixedLengthClass.getName() + ".");
+				}
 			}
 		}
 
@@ -412,8 +414,12 @@ public class MXFBuilder {
 
 		int preserveLimit = buffer.limit();
 
+		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010100")) {
+			int djlj=1;
+			System.out.println("LAKJLJALKJLKJLA");
+		}
 		ClassDefinition localSetClass = ClassDefinitionImpl.forAUID(key);
-
+		//TODO: localSetClass.set
 		if (localSetClass == null) {
 			System.err.println("Unable to find a local implementation of class with id " + key.toString() +
 					". Skipping " + buffer.remaining() + " bytes.");
@@ -429,7 +435,7 @@ public class MXFBuilder {
 		}
 
 		MetadataObject localSetValue = localSetClass.createInstance();
-
+		
 		if (localSetValue == null) {
 			System.err.println("Unable to create an instance of class " + localSetClass.getName() + " implemented by " +
 					localSetClass.getJavaImplementation().getName() + ". Skipping.");

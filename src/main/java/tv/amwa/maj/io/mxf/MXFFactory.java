@@ -135,7 +135,9 @@ public class MXFFactory {
 				dumpBuffer.append(" footer partition:\n");
 			else
 				dumpBuffer.append(" body partition:\n");
-			dumpBuffer.append(partition.toString());
+			if(partition!=null) {
+				dumpBuffer.append(partition.toString());
+			}
 			dumpBuffer.append("\n\n");
 		}
 
@@ -161,13 +163,14 @@ public class MXFFactory {
 			else
 				dumpBuffer.append(" body partition:\n");
 			EssencePartition containerPartition = (EssencePartition) partition;
-
-			for ( EssenceElement element = containerPartition.readEssenceElement() ;
-					element != null ;
-					element = containerPartition.readEssenceElement() ) {
-
-				dumpBuffer.append(element.toString());
-				dumpBuffer.append("\n");
+			if(containerPartition!=null) {
+				for ( EssenceElement element = containerPartition.readEssenceElement() ;
+						element != null ;
+						element = containerPartition.readEssenceElement() ) {
+	
+					dumpBuffer.append(element.toString());
+					dumpBuffer.append("\n");
+				}
 			}
 		}
 

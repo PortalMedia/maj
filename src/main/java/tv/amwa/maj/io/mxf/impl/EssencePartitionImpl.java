@@ -60,8 +60,8 @@ public abstract class EssencePartitionImpl
 
 		long elementPosition = 0;
 		Partition nextPartition = file.getNextPartition(this);
-
-		long nextPartitionStart =  nextPartition.getPartitionPack().getThisPartition();
+		
+		long nextPartitionStart =  nextPartition !=null ? nextPartition.getPartitionPack().getThisPartition() : 0;
 		UL elementKey = (UL) Forge.nilAUID();
 		long length = 0;
 		ByteBuffer data = null;

@@ -120,7 +120,8 @@ public class InterchangeObjectImpl
 		Cloneable {
 	
 	private static final long serialVersionUID = 4120720187157154133L;
-	
+
+	private AUID originalAUID = null;
 	private AUID linkedGenerationID = null;
 	private boolean generationTracking = false;
 	private WeakReference<ClassDefinition> objectClass = null;
@@ -129,6 +130,12 @@ public class InterchangeObjectImpl
 	
 	private Map<AUID, ApplicationPluginObject> applicationPlugins = null;
 	
+	public void setOriginalAUID(AUID originalAUID) {
+		this.originalAUID = originalAUID;
+	}
+	public AUID getOriginalAUID() {
+		return this.originalAUID;
+	}
 	public void disableGenerationTracking() {
 
 		linkedGenerationID = null;

@@ -96,6 +96,7 @@ public abstract class PartitionPackImpl
 		Warehouse.lookForClass(BodyOpenIncompletePartitionPackImpl.class);
 		Warehouse.lookForClass(FooterClosedCompletePartitionPackImpl.class);
 		Warehouse.lookForClass(FooterClosedIncompletePartitionPackImpl.class);
+		Warehouse.lookForClass(GenericStreamPartitionPackImpl.class);
 	}
 
 	public PartitionPackImpl() { }

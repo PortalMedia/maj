@@ -91,7 +91,8 @@ import tv.amwa.maj.record.AUID;
 
 public abstract interface InterchangeObject 
 	extends MediaEntity {
-
+	public void setOriginalAUID(AUID originalAUID);
+	public AUID getOriginalAUID();
 	/**
 	 * <p>Gets the generation of this object, which identifies when this object was created 
 	 * or last modified. </p>

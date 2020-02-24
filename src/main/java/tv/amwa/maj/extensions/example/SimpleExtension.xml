@@ -27,6 +27,14 @@
 
 		<!-- SimpleDescription -->
 		<ClassDefinition>
+			<Symbol>AS07Core</Symbol>
+			<Name>AS07Core</Name>
+			<Identification>urn:smpte:ul:060e2b34.02530101.0d010101.01013a00</Identification>
+			<Description>AS07 Core.</Description>
+			<ParentClass>DescriptiveFramework</ParentClass>
+			<IsConcrete>true</IsConcrete>
+		</ClassDefinition>
+		<ClassDefinition>
 			<Symbol>SimpleDescription</Symbol>
 			<Name>SimpleDescription</Name>
 			<Identification>urn:smpte:ul:060e2b34.02530101.0f201101.01010000</Identification>

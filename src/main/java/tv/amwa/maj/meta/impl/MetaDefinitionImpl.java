@@ -63,6 +63,7 @@
 package tv.amwa.maj.meta.impl;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import org.w3c.dom.Node;
 
@@ -129,7 +130,6 @@ public abstract class MetaDefinitionImpl
 	private String[] aliases;	
 	/** AAF-style type names are in use. */
 	private boolean aafNamesInUse = false;
-	
 	@MediaProperty(uuid1 = 0x06010107, uuid2 = (short) 0x1300, uuid3 = (short) 0x0000,
 			uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x02},
 			definedName = "MetaDefinitionIdentification",
