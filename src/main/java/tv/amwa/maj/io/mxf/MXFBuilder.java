@@ -414,7 +414,7 @@ public class MXFBuilder {
 
 		int preserveLimit = buffer.limit();
 
-		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010100")) {
+		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010400")) {
 			int djlj=1;
 			System.out.println("LAKJLJALKJLKJLA");
 		}
@@ -422,7 +422,7 @@ public class MXFBuilder {
 		//TODO: localSetClass.set
 		if (localSetClass == null) {
 			System.err.println("Unable to find a local implementation of class with id " + key.toString() +
-					". Skipping " + buffer.remaining() + " bytes.");
+					". Skipping " + buffer.remaining() + " bytes at " + buffer.position());
 			buffer.position(preserveLimit);
 			return null;
 		}
@@ -464,7 +464,9 @@ public class MXFBuilder {
 					property = localSetClass.lookupPropertyDefinition(tag);
 					propertyKey = property.getAUID();
 				}
-
+				if(propertyKey.toString().equals("urn:smpte:ul:060e2b34.01010101.0d0e0101.07010403")) {
+					int xljkj = 0;
+				}
 				short shortLength = buffer.getShort();
 				length = (shortLength >= 0) ? shortLength : 65536 - shortLength;
 

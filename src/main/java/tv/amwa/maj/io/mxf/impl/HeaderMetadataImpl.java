@@ -165,6 +165,9 @@ public class HeaderMetadataImpl
 				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010100")) {
 					System.out.println("FOUND AS07CoreDMSFramework");
 				}
+				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010300")) {
+					System.out.println("FOUND AS07DMSIdentifierSet");
+				}
 				long length = MXFBuilder.readBERLength(buffer);
 				buffer.limit((int) (buffer.position() + length));
 

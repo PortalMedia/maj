@@ -97,6 +97,9 @@ import tv.amwa.maj.model.impl.ApplicationObjectImpl;
 import tv.amwa.maj.model.impl.ApplicationPluginObjectImpl;
 import tv.amwa.maj.model.impl.ApplicationReferencedObjectImpl;
 import tv.amwa.maj.model.impl.AS07CoreDMSFrameworkImpl;
+import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
+import tv.amwa.maj.model.impl.AS07GSPDMSObjectImpl;
+import tv.amwa.maj.model.impl.AS07GspBdDMSFrameworkImpl;
 import tv.amwa.maj.model.impl.AuxiliaryDescriptorImpl;
 import tv.amwa.maj.model.impl.BWFImportDescriptorImpl;
 import tv.amwa.maj.model.impl.CDCIDescriptorImpl;
@@ -282,6 +285,9 @@ public interface AAFSpecifiedClasses {
 		EventTrackImpl.class,
 		StaticTrackImpl.class,
 		AS07CoreDMSFrameworkImpl.class,
+		AS07DMSIdentifierSetImpl.class,
+		AS07GspBdDMSFrameworkImpl.class,
+		AS07GSPDMSObjectImpl.class,
 		TimelineTrackImpl.class,
 		ConstantValueImpl.class,
 		VaryingValueImpl.class,

@@ -74,6 +74,7 @@
 package tv.amwa.maj.meta.impl;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -883,17 +884,24 @@ public final class TypeDefinitionStringImpl
 	@Override
 	public PropertyValue createFromBytes(
 			ByteBuffer buffer) {
-
-		// TODO make this truly UTF-16 rather than 2-byte
-		char[] characters = new char[buffer.remaining() / 2];
-		for ( int u = 0 ; u < characters.length ; u++ )
-			characters[u] = buffer.getChar();
+		int r = buffer.remaining();
+		byte[] characters = new byte[buffer.remaining()];
+		for(int u = 0; u < r; u++) {
+			characters[u]=buffer.get();
+		}
 		
-		String checkForNulls = new String(characters);
+		String checkForNulls="";
+		try {
+			checkForNulls = new String(characters, "UTF-16");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int firstNull = checkForNulls.indexOf('\u0000');
 		if (firstNull != -1)
 			checkForNulls = checkForNulls.substring(0, firstNull);
-		
+
+		System.out.println(checkForNulls);
 		return createValue(checkForNulls);
 	}
 	
