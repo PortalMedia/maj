@@ -17,6 +17,14 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 		public String getResponsibleOrganizationCode();
 		public void setResponsibleOrganizationCode(
 				String responsibleOrganizationCode);
+
+		public String getSecondaryTitle();
+		public void setSecondaryTitle(
+				String secondaryTitle);
+
+		public String getWorkingTitle();
+		public void setWorkingTitle(
+				String workingTitle);
 		
 		public String getPictureFormat();
 		public void getPictureFormat(

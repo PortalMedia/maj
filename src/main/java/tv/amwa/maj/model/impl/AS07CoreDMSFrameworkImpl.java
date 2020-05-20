@@ -37,6 +37,8 @@ public class AS07CoreDMSFrameworkImpl
 	private String audioTrackSecondaryLanguage = null;
 	private String audioTrackPrimaryLanguage = null;
 	private String natureOfOrganization = null;
+	private String secondaryTitle = null;
+	private String workingTitle = null;
 	
 	
 	
@@ -160,7 +162,7 @@ public class AS07CoreDMSFrameworkImpl
 
 		this.captions = captions;
 	}
-	
+
 
 	@MediaProperty(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x010e,
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
@@ -183,6 +185,51 @@ public class AS07CoreDMSFrameworkImpl
 			AUID audioTrackLayout) {
 
 		this.audioTrackLayout = audioTrackLayout;
+	}
+	
+	@MediaProperty(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0107,
+			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
+			definedName = "WorkingTitle",
+			aliases = {  },
+			typeName = "UTF16String",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x8004,
+			symbol = "WorkingTitle")
+	public String getWorkingTitle() 
+		throws PropertyNotPresentException {
+
+		return workingTitle;
+	}
+	
+
+	@MediaPropertySetter("WorkingTitle")
+	public void setWorkingTitle(
+			String workingTitle) {
+
+		this.workingTitle = workingTitle;
+	}
+	@MediaProperty(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0108,
+			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
+			definedName = "SecondaryTitle",
+			aliases = {  },
+			typeName = "UTF16String",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x8004,
+			symbol = "SecondaryTitle")
+	public String getSecondaryTitle() 
+		throws PropertyNotPresentException {
+
+		return secondaryTitle;
+	}
+	
+
+	@MediaPropertySetter("SecondaryTitle")
+	public void setSecondaryTitle(
+			String secondaryTitle) {
+
+		this.secondaryTitle = secondaryTitle;
 	}
 
 	
@@ -384,6 +431,7 @@ public class AS07CoreDMSFrameworkImpl
 		}
 		devices.add(device);
 	}
+
 
 
 
