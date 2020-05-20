@@ -5,7 +5,6 @@ import tv.amwa.maj.industry.MediaClass;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.model.AS07DMSIdentifierSet;
-import tv.amwa.maj.record.AUID;
 
 //060E2B34 02530101 0D0E0101 07010300
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0300,

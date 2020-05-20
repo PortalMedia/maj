@@ -4,7 +4,6 @@ import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaClass;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
-import tv.amwa.maj.model.AS07DMSIdentifierSet;
 import tv.amwa.maj.model.AS07GspBdDMSFramework;
 import tv.amwa.maj.record.AUID;
 
@@ -69,7 +68,6 @@ extends DescriptiveFrameworkImpl implements AS07GspBdDMSFramework{
 		return primaryRFC5646LanguageCode;
 	}
 	
-
 	@Override
 	@MediaPropertySetter("PrimaryRFC5646LanguageCode")
 	public void setPrimaryRFC5646LanguageCode(
@@ -77,6 +75,4 @@ extends DescriptiveFrameworkImpl implements AS07GspBdDMSFramework{
 
 		this.primaryRFC5646LanguageCode = primaryRFC5646LanguageCode;
 	}
-	
-	
 }

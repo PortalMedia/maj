@@ -10,9 +10,14 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 			throws PropertyNotPresentException;
 		public void setShimName(
 				String shimName);
-		public String getResponsibleOrganization();
-		public void setResponsibleOrganization(
-				String responsibleOrganization);
+		public String getResponsibleOrganizationName();
+		public void setResponsibleOrganizationName(
+				String responsibleOrganizationName);
+		
+		public String getResponsibleOrganizationCode();
+		public void setResponsibleOrganizationCode(
+				String responsibleOrganizationCode);
+		
 		public String getPictureFormat();
 		public void getPictureFormat(
 				String pictureFormat);
@@ -20,7 +25,7 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 		public void getCaptions(
 				String captions);
 		public AUID getAudioTrackLayout();
-		public void getAudioTrackLayout(
+		public void setAudioTrackLayout(
 				AUID audioTrackLayout);
 		public String getIntendedAFD();
 		public void getIntendedAFD(
@@ -31,4 +36,21 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 				Set<AUID> identifiers);
 		public void addIdentifiers(AUID identifier);
 		public int getIdentifiersSize();
+		
+		public String getAudioTrackLayoutComment();
+		public void setAudioTrackLayoutComment(String audioTrackLayoutComment);
+		
+		public String getAudioTrackPrimaryLanguage();
+		public void setAudioTrackPrimaryLanguage(String audioTrackPrimaryLanguage);
+		
+		public String getAudioTrackSecondaryLanguage();
+		public void setAudioTrackSecondaryLanguage(String audioTrackSecondaryLanguage);
+		
+
+		public String getNatureOfOrganization();
+		public void setNatureOfOrganization(String natureOfOrganization);
+		
+		public Set<AUID> getDevices();
+		public void setDevices(Set<AUID> devices) ;
+		public void addDevices(AUID device);
 }
