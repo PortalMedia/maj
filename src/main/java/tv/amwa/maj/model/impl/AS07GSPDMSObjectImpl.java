@@ -6,21 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 import tv.amwa.maj.exception.PropertyNotPresentException;
-import tv.amwa.maj.extensions.avid.TypeDefinitions;
-import tv.amwa.maj.extensions.example.Person;
 import tv.amwa.maj.industry.MediaClass;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.industry.MediaSetAdd;
-import tv.amwa.maj.industry.MetadataObject;
-import tv.amwa.maj.industry.StrongReferenceSet;
-import tv.amwa.maj.industry.WeakReferenceTarget;
-import tv.amwa.maj.meta.TypeDefinition;
-import tv.amwa.maj.meta.TypeDefinitionCharacter;
-import tv.amwa.maj.model.AS07DMSIdentifierSet;
 import tv.amwa.maj.model.AS07GSPDMSObject;
-import tv.amwa.maj.model.AS07GspBdDMSFramework;
-import tv.amwa.maj.model.PackageMarker;
 import tv.amwa.maj.record.AUID;
 //060E2B34 02530101 0D0E0101 07010400
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0400,
@@ -47,7 +37,7 @@ AS07GSPDMSObject{
 	private String dataDescriptions = null;
 	private String textDataDescriptions = null;
 	private String note = null;
-	private String genericStreamId = null;
+	private int genericStreamId;
 	private Set<AUID> identifiers = Collections.synchronizedSet(new HashSet<AUID>());
 	
 	//060E2B34 0101010D 04060806 00000000
@@ -156,7 +146,7 @@ AS07GSPDMSObject{
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
 			definedName = "DataDescriptions",
 			aliases = {  },
-			typeName = "UTF16String",
+			typeName = "ASCIIString",
 			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x8010,
@@ -206,7 +196,7 @@ AS07GSPDMSObject{
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
 			definedName = "Note",
 			aliases = {  },
-			typeName = "UTF16String",
+			typeName = "ASCIIString",
 			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x8012,
@@ -231,22 +221,18 @@ AS07GSPDMSObject{
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0d},
 			definedName = "GenericStreamId",
 			aliases = {  },
-			typeName = "UTF16String",
+			typeName = "UInt32",
 			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x8013,
 			symbol = "GenericStreamId")
-	public String getGenericStreamId() 
-		throws PropertyNotPresentException {
+	public int getGenericStreamId()  {
 
-		if (genericStreamId == null)
-			throw new PropertyNotPresentException("GenericStreamId property is not present.");
-		
 		return genericStreamId;
 	}
 	@MediaPropertySetter("GenericStreamId")
 	public void setGenericStreamId(
-			String genericStreamId) {
+			int genericStreamId) {
 
 		this.genericStreamId = genericStreamId;
 	}

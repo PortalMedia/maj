@@ -1,26 +1,11 @@
 package tv.amwa.maj.model.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import tv.amwa.maj.exception.ObjectAlreadyAttachedException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaClass;
-import tv.amwa.maj.industry.MediaListAppend;
 import tv.amwa.maj.industry.MediaProperty;
-import tv.amwa.maj.industry.MediaPropertyClear;
-import tv.amwa.maj.industry.MediaPropertyCount;
 import tv.amwa.maj.industry.MediaPropertySetter;
-import tv.amwa.maj.industry.StrongReferenceSet;
-import tv.amwa.maj.industry.StrongReferenceVector;
 import tv.amwa.maj.model.AS07GSPDMSObject;
 import tv.amwa.maj.model.AS07GspBdDMSFramework;
-import tv.amwa.maj.model.PluginDefinition;
-import tv.amwa.maj.model.RIFFChunk;
-import tv.amwa.maj.record.AUID;
 
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0702, uuid3 = 0x0200,
 uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},

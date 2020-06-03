@@ -113,6 +113,7 @@ import tv.amwa.maj.meta.impl.ClassDefinitionImpl;
 import tv.amwa.maj.meta.impl.ExtensionSchemeImpl;
 import tv.amwa.maj.meta.impl.MetaDefinitionImpl;
 import tv.amwa.maj.meta.impl.PropertyDefinitionImpl;
+import tv.amwa.maj.meta.impl.TypeDefinitionAsciiImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionCharacterImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionEnumerationImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionExtendibleEnumerationImpl;
@@ -924,6 +925,12 @@ public interface TypeDefinitions {
 			new AUIDImpl(0x01100200, (short) 0x0000, (short) 0x0000,
 					new byte[] {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01} ),
 			"UTF16String",
+			TypeDefinitions.Character);
+	
+	public final static TypeDefinitionString ASCIIString = new TypeDefinitionAsciiImpl(
+			new AUIDImpl(0x01100200, (short) 0x0000, (short) 0x0000,
+					new byte[] {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01} ),
+			"ASCIIString",
 			TypeDefinitions.Character);
 
 	/**

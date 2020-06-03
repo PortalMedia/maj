@@ -120,10 +120,10 @@ import tv.amwa.maj.record.AUID;
 
 @MediaClass(uuid1 = 0x0d010101, uuid2 = 0x020b, uuid3 = 0x0000,
 		  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
-		  definedName = "TypeDefinitionString",
+		  definedName = "TypeDefinitionAscii",
 		  description = "The TypeDefinitionString class defines a property type that consists of a zero-terminated array of the underlying character or integer type.",
-		  symbol = "TypeDefinitionString")
-public final class TypeDefinitionStringImpl 
+		  symbol = "TypeDefinitionAscii")
+public final class TypeDefinitionAsciiImpl 
 	extends 
 		SingletonTypeDefinitionImpl 
 	implements 
@@ -132,12 +132,12 @@ public final class TypeDefinitionStringImpl
 		Cloneable {
 
 	/** <p></p> */
-	private static final long serialVersionUID = -362492942547562578L;
+	private static final long serialVersionUID = -362492942547542578L;
 	
 	private WeakReference<TypeDefinition> elementType;
-	private transient Charset charSet = Charset.forName("UTF-16");
+	private transient Charset charSet = Charset.forName("US-ASCII");
 	
-	protected TypeDefinitionStringImpl() { }
+	protected TypeDefinitionAsciiImpl() { }
 	
 	/**
 	 * <p>Creates and initializes the string type definition with its identity and the
@@ -173,7 +173,7 @@ public final class TypeDefinitionStringImpl
 	 * @throws IllegalArgumentException The given type is not an acceptable underlying
 	 * type for a string type definition.
 	 */
-	public TypeDefinitionStringImpl(
+	public TypeDefinitionAsciiImpl(
 			AUID identification,
 			@AAFString String typeName,
 			TypeDefinition typeDefinition) 
@@ -198,15 +198,15 @@ public final class TypeDefinitionStringImpl
 		extends PropertyValueImpl
 		implements PropertyValue {
 		
-		private TypeDefinitionStringImpl type;
+		private TypeDefinitionAsciiImpl type;
 		
 		protected void setType(
-				TypeDefinitionStringImpl type) {
+				TypeDefinitionAsciiImpl type) {
 			
 			this.type = type;
 		}
 
-		public TypeDefinitionStringImpl getType() {
+		public TypeDefinitionAsciiImpl getType() {
 			
 			return type;
 		}
@@ -246,7 +246,7 @@ public final class TypeDefinitionStringImpl
 		 * @param value Value of the property.
 		 */
 		private CharacterStringValue(
-				TypeDefinitionStringImpl type,
+				TypeDefinitionAsciiImpl type,
 				String value) {
 			
 			setType(type);
@@ -294,7 +294,7 @@ public final class TypeDefinitionStringImpl
 		 * @param order Byte order used to encode the data as a byte array.
 		 */
 		private ByteArrayStringValue(
-				TypeDefinitionStringImpl type,
+				TypeDefinitionAsciiImpl type,
 				byte[] value,
 				ByteOrder order) {
 			
@@ -884,12 +884,19 @@ public final class TypeDefinitionStringImpl
 	@Override
 	public PropertyValue createFromBytes(
 			ByteBuffer buffer) {
-		char[] characters = new char[buffer.remaining() / 2];
-		for ( int u = 0 ; u < characters.length ; u++ )
-			characters[u] = buffer.getChar();
+		int r = buffer.remaining();
+		byte[] characters = new byte[buffer.remaining()];
+		for(int u = 0; u < r; u++) {
+			characters[u]=buffer.get();
+		}
 		
-		String checkForNulls=new String(characters);
-		
+		String checkForNulls="";
+		try {
+			checkForNulls = new String(characters, "ASCII");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		int firstNull = checkForNulls.indexOf('\u0000');
 		if (firstNull != -1)
 			checkForNulls = checkForNulls.substring(0, firstNull);

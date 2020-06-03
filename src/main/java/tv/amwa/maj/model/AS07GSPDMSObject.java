@@ -53,9 +53,9 @@ Serializable{
 	void setNote(String note);
 
 	//060E2B34 0101010D 01030408 00000000 
-	String getGenericStreamId() throws PropertyNotPresentException;
+	int getGenericStreamId();
 
-	void setGenericStreamId(String genericStreamId);
+	void setGenericStreamId(int genericStreamId);
 	
 	Set<AUID> getIdentifiers();
 
