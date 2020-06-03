@@ -134,6 +134,7 @@ import tv.amwa.maj.model.ContainerDefinition;
 import tv.amwa.maj.model.DefinitionObject;
 import tv.amwa.maj.model.EssenceData;
 import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;
+import tv.amwa.maj.model.impl.AS07GSPDMSObjectImpl;
 import tv.amwa.maj.model.impl.CodecDefinitionImpl;
 import tv.amwa.maj.model.impl.ComponentImpl;
 import tv.amwa.maj.model.impl.ContainerDefinitionImpl;
@@ -1743,6 +1744,14 @@ public interface TypeDefinitions {
 						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
 				"RIFFChunkStrongReference",
 				Warehouse.lookForClass(RIFFChunkImpl.class));
+	
+
+	public static final TypeDefinitionStrongObjectReference AS07GSPDMSObjectStrongReference =
+		new TypeDefinitionStrongObjectReferenceImpl(
+				new AUIDImpl(0x05022209, (short) 0x0000, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+				"AS07GSPDMSObjectStrongReference",
+				Warehouse.lookForClass(AS07GSPDMSObjectImpl.class));
 
 	/**
 	 * <p>Defines the type for a value that represents a strong reference to a

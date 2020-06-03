@@ -1,11 +1,21 @@
 package tv.amwa.maj.model;
 
+import java.io.Serializable;
+import java.util.Set;
+
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
+import tv.amwa.maj.industry.MetadataObject;
+import tv.amwa.maj.industry.WeakReferenceTarget;
+import tv.amwa.maj.model.impl.InterchangeObjectImpl;
 import tv.amwa.maj.record.AUID;
 
-public interface AS07GSPDMSObject {
+public interface AS07GSPDMSObject 
+extends
+InterchangeObject,
+Cloneable,
+Serializable{
 
 	//060E2B34 0101010D 04060806 00000000
 	AUID getTextBasedMetadataPayloadSchemeIdentifier() throws PropertyNotPresentException;
@@ -46,5 +56,7 @@ public interface AS07GSPDMSObject {
 	String getGenericStreamId() throws PropertyNotPresentException;
 
 	void setGenericStreamId(String genericStreamId);
+	
+	Set<AUID> getIdentifiers();
 
 }

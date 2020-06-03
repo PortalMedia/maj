@@ -1,20 +1,26 @@
 package tv.amwa.maj.model.impl;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.extensions.avid.TypeDefinitions;
+import tv.amwa.maj.extensions.example.Person;
 import tv.amwa.maj.industry.MediaClass;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.industry.MediaSetAdd;
+import tv.amwa.maj.industry.MetadataObject;
+import tv.amwa.maj.industry.StrongReferenceSet;
+import tv.amwa.maj.industry.WeakReferenceTarget;
 import tv.amwa.maj.meta.TypeDefinition;
 import tv.amwa.maj.meta.TypeDefinitionCharacter;
 import tv.amwa.maj.model.AS07DMSIdentifierSet;
 import tv.amwa.maj.model.AS07GSPDMSObject;
 import tv.amwa.maj.model.AS07GspBdDMSFramework;
+import tv.amwa.maj.model.PackageMarker;
 import tv.amwa.maj.record.AUID;
 //060E2B34 02530101 0D0E0101 07010400
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0400,
@@ -24,7 +30,13 @@ aliases = {},
 description = "AS07GSPDMSObject",
 symbol = "AS07GSPDMSObject")
 public class AS07GSPDMSObjectImpl 
-extends DescriptiveFrameworkImpl implements AS07GSPDMSObject{
+
+extends
+InterchangeObjectImpl
+implements
+	Cloneable,
+	Serializable ,
+AS07GSPDMSObject{
 
 	private static final long serialVersionUID = 145566436L;
 
@@ -289,4 +301,9 @@ extends DescriptiveFrameworkImpl implements AS07GSPDMSObject{
 
 		return identifiers.size();
 	}
+
+    public AS07GSPDMSObject clone() {
+
+        return (AS07GSPDMSObject) super.clone();
+    }
 }

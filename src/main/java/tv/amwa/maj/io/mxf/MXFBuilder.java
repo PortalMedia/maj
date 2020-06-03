@@ -414,8 +414,7 @@ public class MXFBuilder {
 
 		int preserveLimit = buffer.limit();
 
-		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010400")) {
-			int djlj=1;
+		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010300")) {
 			System.out.println("LAKJLJALKJLKJLA");
 		}
 		ClassDefinition localSetClass = ClassDefinitionImpl.forAUID(key);

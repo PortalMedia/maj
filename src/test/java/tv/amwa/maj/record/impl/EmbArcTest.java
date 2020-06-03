@@ -90,7 +90,7 @@ public class EmbArcTest {
 		      index.add(segment);
 		      readBytes += 20 + ((PartitionPack) segment).getEncodedSize();
 		    }    
-		  }*/
+		  
 
 			MXFFile mxfFile = MXFFactory.readPartitions("/Users/dan/Downloads/as07_sample1-gf-unc-3.1.mxf/as07_sample1-gf-unc-3.1.mxf");
 			
@@ -115,7 +115,7 @@ public class EmbArcTest {
 				  essenceHeaderBytes.writeTo(outputStream);
 				}
 		
-		/*
+		
 		  // Primer pack - lookup uuids from this primer pack
 		HeaderMetadata fromTheHeader = mxfFile.getHeaderPartition().readHeaderMetadata();
 		
@@ -191,13 +191,13 @@ public class EmbArcTest {
 			
 		}
 		//System.out.println(preface);
-
+/*
 		
 		BufferedWriter writer = new BufferedWriter(new FileWriter("/users/dan/documents/loc/mxf_prefaceset.txt"));
 	    writer.write(fromTheHeader.getPreface().toString());
 	    writer.close();
 		FooterPartition fp = mxfFile.getFooterPartition();
-		
+		*/
 		//MXFStream.writeFill(stream, totalLength);
 	}
 }

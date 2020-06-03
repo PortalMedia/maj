@@ -79,6 +79,9 @@ public class ResolutionEntry {
 
 			if (resolvedReference != null) {
 				try {
+					if(property.getName().equals("TextBasedObjects")) {
+						System.out.println("HERE");
+					}
 					Field injectionPoint = findInjectionPoint(property);
 					injectionPoint.setAccessible(true);
 					injectionPoint.set(target, resolvedReference.getValue());
