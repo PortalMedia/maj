@@ -135,6 +135,7 @@ import tv.amwa.maj.model.ContainerDefinition;
 import tv.amwa.maj.model.DefinitionObject;
 import tv.amwa.maj.model.EssenceData;
 import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;
+import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
 import tv.amwa.maj.model.impl.AS07GSPDMSObjectImpl;
 import tv.amwa.maj.model.impl.CodecDefinitionImpl;
 import tv.amwa.maj.model.impl.ComponentImpl;
@@ -1759,6 +1760,13 @@ public interface TypeDefinitions {
 						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
 				"AS07GSPDMSObjectStrongReference",
 				Warehouse.lookForClass(AS07GSPDMSObjectImpl.class));
+	
+	public static final TypeDefinitionStrongObjectReference AS07DMSIdentifierStrongReference =
+		new TypeDefinitionStrongObjectReferenceImpl(
+				new AUIDImpl(0x05088209, (short) 0x0000, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+				"AS07DMSIdentifierStrongReference",
+				Warehouse.lookForClass(AS07DMSIdentifierSetImpl.class));
 
 	/**
 	 * <p>Defines the type for a value that represents a strong reference to a
@@ -2852,6 +2860,22 @@ public interface TypeDefinitions {
 						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
 				"RIFFChunkStrongReferenceVector",
 				RIFFChunkStrongReference);
+	
+
+	public static final TypeDefinitionVariableArrayImpl AS07GSPDMSObjectStrongReferenceVector =
+		new TypeDefinitionVariableArrayImpl(
+				new AUIDImpl(0x05024809, (short) 0x0000, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+				"AS07GSPDMSObjectStrongReferenceVector",
+				AS07GSPDMSObjectStrongReference);
+
+	public static final TypeDefinitionVariableArrayImpl AS07DMSIdentifierStrongReferenceVector =
+		new TypeDefinitionVariableArrayImpl(
+				new AUIDImpl(0x05025809, (short) 0x0000, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+				"AS07DMSIdentifierStrongReferenceVector",
+				AS07DMSIdentifierStrongReference);
+	
 
 	/**
 	 * <p>Define the type for a value that represents a list of strong references to

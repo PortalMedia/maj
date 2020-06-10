@@ -28,7 +28,7 @@ extends DescriptiveFrameworkImpl implements AS07GspBdDMSFramework{
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0d},
 			definedName = "TextBasedObjects",
 			aliases = {  },
-			typeName = "AS07GSPDMSObjectStrongReferenceVector",
+			typeName = "AS07GSPDMSObjectStrongReference",
 			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x800b,

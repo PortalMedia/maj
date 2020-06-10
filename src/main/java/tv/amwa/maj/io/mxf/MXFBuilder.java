@@ -515,6 +515,9 @@ public class MXFBuilder {
 				continue;
 			}
 
+			if(property.getName().equals("Identifiers")) {
+				int i = 0;
+			}
 			TypeDefinition propertyType = property.getTypeDefinition();
 			buffer.limit(buffer.position() + length);
 

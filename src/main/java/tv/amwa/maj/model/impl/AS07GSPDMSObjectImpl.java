@@ -1,15 +1,22 @@
 package tv.amwa.maj.model.impl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import tv.amwa.maj.exception.ObjectAlreadyAttachedException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaClass;
+import tv.amwa.maj.industry.MediaListAppend;
 import tv.amwa.maj.industry.MediaProperty;
+import tv.amwa.maj.industry.MediaPropertyCount;
 import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.industry.MediaSetAdd;
+import tv.amwa.maj.industry.StrongReferenceVector;
+import tv.amwa.maj.model.AS07DMSIdentifierSet;
 import tv.amwa.maj.model.AS07GSPDMSObject;
 import tv.amwa.maj.record.AUID;
 //060E2B34 02530101 0D0E0101 07010400
@@ -38,7 +45,7 @@ AS07GSPDMSObject{
 	private String textDataDescriptions = null;
 	private String note = null;
 	private int genericStreamId;
-	private Set<AUID> identifiers = Collections.synchronizedSet(new HashSet<AUID>());
+	private List<AS07DMSIdentifierSetImpl> identifiers = Collections.synchronizedList(new ArrayList<AS07DMSIdentifierSetImpl>());
 	
 	//060E2B34 0101010D 04060806 00000000
 	@MediaProperty(uuid1 = 0x04060806, uuid2 = 0x0000, uuid3 = 0x0000,
@@ -242,22 +249,18 @@ AS07GSPDMSObject{
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
 			definedName = "Identifiers",
 			aliases = { },
-			typeName = "AUIDSet",
+			typeName = "AS07DMSIdentifierStrongReferenceVector",
 			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x8014,
 			symbol = "Identifiers")
-	public Set<AUID> getIdentifiers()
-			throws PropertyNotPresentException {
-
-		if (identifiers == null)
-			throw new PropertyNotPresentException("The optional described tracks property is not present in this descriptive marker.");
-
-		return new HashSet<AUID>(identifiers);
+	public List<AS07DMSIdentifierSetImpl> getIdentifiers()
+			{
+		return StrongReferenceVector.getOptionalList(identifiers);
 	}
 	@MediaPropertySetter("Identifiers")
 	public void setIdentifiers(
-			Set<AUID> identifiers) 
+			List<AS07DMSIdentifierSetImpl> identifiers) 
 		throws IllegalArgumentException {
 
 		if (identifiers == null) {
@@ -265,20 +268,26 @@ AS07GSPDMSObject{
 			return;
 		}
 
-		this.identifiers = Collections.synchronizedSet(new HashSet<AUID>());
-		for ( AUID identifier : identifiers ) {
+		this.identifiers = Collections.synchronizedList(new ArrayList<AS07DMSIdentifierSetImpl>());
+		for ( AS07DMSIdentifierSetImpl identifier : identifiers ) {
 			this.identifiers.add(identifier);
 		}
 	}
 
-	@MediaSetAdd("Identifiers")
-	public void addIdentifiers(AUID identifier){
-		if (identifiers == null) {
-			identifiers = Collections.synchronizedSet(new HashSet<AUID>());
-		}
-		identifiers.add(identifier);
+	@MediaListAppend("Identifiers")
+	public void addIdentifiers(AS07DMSIdentifierSetImpl identifier)
+		throws NullPointerException,
+			ObjectAlreadyAttachedException {
+
+		if (identifier == null)
+			throw new NullPointerException("Cannot append a null value .");
+		if (identifiers.contains(identifier))
+			throw new ObjectAlreadyAttachedException("The given tODO.");
+		
+		StrongReferenceVector.append(identifiers, identifier);
 	}
-	
+
+	@MediaPropertyCount("Identifiers")
 	public int getIdentifiersSize() 
 		throws PropertyNotPresentException {
 

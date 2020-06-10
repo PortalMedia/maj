@@ -1,13 +1,18 @@
 package tv.amwa.maj.model;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
+import tv.amwa.maj.industry.MediaSetAdd;
 import tv.amwa.maj.industry.MetadataObject;
 import tv.amwa.maj.industry.WeakReferenceTarget;
+import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
 import tv.amwa.maj.model.impl.InterchangeObjectImpl;
 import tv.amwa.maj.record.AUID;
 
@@ -57,6 +62,10 @@ Serializable{
 
 	void setGenericStreamId(int genericStreamId);
 	
-	Set<AUID> getIdentifiers();
+	List<AS07DMSIdentifierSetImpl> getIdentifiers();
+	void setIdentifiers(
+			List<AS07DMSIdentifierSetImpl> identifiers);
+	void addIdentifiers(AS07DMSIdentifierSetImpl identifier);
+	int getIdentifiersSize();
 
 }

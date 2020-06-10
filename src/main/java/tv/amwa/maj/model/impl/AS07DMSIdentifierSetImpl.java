@@ -9,12 +9,14 @@ import tv.amwa.maj.model.AS07DMSIdentifierSet;
 //060E2B34 02530101 0D0E0101 07010300
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0300,
 uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
-definedName = "AS07DMSIdentifierSet",
+definedName = "AS07DMSIdentifier",
 aliases = {},
-description = "AS07DMSIdentifierSet",
-symbol = "AS07DMSIdentifierSet")
+description = "AS07DMSIdentifier",
+symbol = "AS07DMSIdentifier")
 public class AS07DMSIdentifierSetImpl 
-extends DescriptiveFrameworkImpl implements AS07DMSIdentifierSet{
+
+extends
+InterchangeObjectImpl implements AS07DMSIdentifierSet{
 
 	private static final long serialVersionUID = 145566435L;
 
@@ -35,10 +37,6 @@ extends DescriptiveFrameworkImpl implements AS07DMSIdentifierSet{
 			symbol = "IdentifierValue")
 	public String getIdentifierValue() 
 		throws PropertyNotPresentException {
-
-		if (identifierValue == null)
-			throw new PropertyNotPresentException("IdentifierValue property is not present.");
-		
 		return identifierValue;
 	}
 	
@@ -64,9 +62,6 @@ extends DescriptiveFrameworkImpl implements AS07DMSIdentifierSet{
 			symbol = "IdentifierRole")
 	public String getIdentifierRole() 
 		throws PropertyNotPresentException {
-
-		if (identifierRole == null)
-			throw new PropertyNotPresentException("IdentifierRole property is not present.");
 		
 		return identifierRole;
 	}
@@ -94,8 +89,6 @@ extends DescriptiveFrameworkImpl implements AS07DMSIdentifierSet{
 	public String getIdentifierType() 
 		throws PropertyNotPresentException {
 
-		if (identifierType == null)
-			throw new PropertyNotPresentException("IdentifierType property is not present.");
 		
 		return identifierType;
 	}
@@ -123,8 +116,6 @@ extends DescriptiveFrameworkImpl implements AS07DMSIdentifierSet{
 	public String getIdentifierComment() 
 		throws PropertyNotPresentException {
 
-		if (identifierComment == null)
-			throw new PropertyNotPresentException("IdentifierComment property is not present.");
 		
 		return identifierComment;
 	}
