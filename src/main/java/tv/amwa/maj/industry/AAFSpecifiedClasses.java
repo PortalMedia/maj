@@ -88,6 +88,7 @@ import tv.amwa.maj.meta.impl.TypeDefinitionStringImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionStrongObjectReferenceImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionVariableArrayImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionWeakObjectReferenceImpl;
+import tv.amwa.maj.model.AS07TimecodeLabelSubdescriptor;
 import tv.amwa.maj.model.InterchangeObject;
 import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;
 import tv.amwa.maj.model.impl.AES3PCMDescriptorImpl;
@@ -286,6 +287,7 @@ public interface AAFSpecifiedClasses {
 		EventTrackImpl.class,
 		StaticTrackImpl.class,
 		AS07CoreDMSFrameworkImpl.class,
+		AS07TimecodeLabelSubdescriptor.class,
 		AS07DMSIdentifierSetImpl.class,
 		AS07GspBdDMSFrameworkImpl.class,
 		AS07GspTdDMSFrameworkImpl.class,
