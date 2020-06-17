@@ -1,8 +1,17 @@
 package tv.amwa.maj.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
+import tv.amwa.maj.exception.ObjectAlreadyAttachedException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
+import tv.amwa.maj.industry.MediaListAppend;
+import tv.amwa.maj.industry.MediaPropertyCount;
+import tv.amwa.maj.industry.MediaPropertySetter;
+import tv.amwa.maj.industry.StrongReferenceVector;
+import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
 import tv.amwa.maj.record.AUID;
 
 public interface AS07CoreDMSFramework extends DescriptiveFramework {
@@ -38,11 +47,13 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 		public String getIntendedAFD();
 		public void getIntendedAFD(
 				String intendedAFD);
-		public Set<AUID> getIdentifiers()
-				throws PropertyNotPresentException;
+		
+		
+		
+		public List<AS07DMSIdentifierSetImpl> getIdentifiers();
 		public void setIdentifiers(
-				Set<AUID> identifiers);
-		public void addIdentifiers(AUID identifier);
+				List<AS07DMSIdentifierSetImpl> identifiers) ;
+		public void addIdentifiers(AS07DMSIdentifierSetImpl identifier);
 		public int getIdentifiersSize();
 		
 		public String getAudioTrackLayoutComment();
