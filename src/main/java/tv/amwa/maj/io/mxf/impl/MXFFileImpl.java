@@ -991,6 +991,7 @@ public class MXFFileImpl
 			}
 			else {
 				try {
+					System.out.println("Current Position: " + fileChannel.position());
 					readBuffer = ByteBuffer.allocate(size);
 					countBytesRead = fileChannel.read(readBuffer);
 					readBuffer.flip();

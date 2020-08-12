@@ -30,7 +30,7 @@ symbol = "AS07TimecodeLabelSubdescriptor")
 public class AS07TimecodeLabelSubdescriptorImpl 
 
 extends
-DescriptiveFrameworkImpl
+SubDescriptorImpl
 implements
 	Cloneable,
 	Serializable, AS07TimecodeLabelSubdescriptor{

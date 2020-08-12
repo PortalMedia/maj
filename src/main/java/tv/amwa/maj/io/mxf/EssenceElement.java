@@ -16,6 +16,8 @@
 
 package tv.amwa.maj.io.mxf;
 
+import java.nio.ByteBuffer;
+
 import tv.amwa.maj.industry.Forge;
 import tv.amwa.maj.record.AUID;
 
@@ -38,4 +40,6 @@ public interface EssenceElement
 	public final static byte GCSound = 0x16;
 	public final static byte GCData = 0x17;
 	public final static byte GCCompound = 0x18;
+	
+	public ByteBuffer getData() throws Exception;
 }

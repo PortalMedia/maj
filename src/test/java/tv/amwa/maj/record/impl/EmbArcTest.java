@@ -45,6 +45,7 @@ import tv.amwa.maj.model.Segment;
 import tv.amwa.maj.model.Sequence;
 import tv.amwa.maj.model.StaticTrack;
 import tv.amwa.maj.model.TaggedValue;
+import tv.amwa.maj.model.TimelineTrack;
 import tv.amwa.maj.model.Track;
 import tv.amwa.maj.record.AUID;
 
@@ -175,16 +176,21 @@ public class EmbArcTest {
 		Preface preface = fromTheHeader.getPreface();
 		ContentStorage contentStorage = preface.getContentStorageObject();
 		Set<? extends tv.amwa.maj.model.Package> packages = contentStorage.getPackages();
-		
+		int sound = 0;
 		for(tv.amwa.maj.model.Package p : packages) {
 			if(p instanceof MaterialPackage) {
 				for(Track t : p.getPackageTracks()) {
 					System.out.println(t.toString());
-					if(t instanceof StaticTrack) {
-						StaticTrack st = (StaticTrack)t;
+					if(t instanceof TimelineTrack) {
+						TimelineTrack st = (TimelineTrack)t;
+					
 						Segment ts = st.getTrackSegment();
 						
 						ClassDefinition def = st.getObjectClass();
+						DataDefinition d = ts.getComponentDataDefinition();
+						int i = 0;
+						//urn:smpte:ul:060e2b34.04010101.01030202.01000000
+						
 					}
 				}
 			}

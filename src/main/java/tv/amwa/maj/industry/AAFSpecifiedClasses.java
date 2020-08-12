@@ -94,11 +94,13 @@ import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;
 import tv.amwa.maj.model.impl.AES3PCMDescriptorImpl;
 import tv.amwa.maj.model.impl.AIFCDescriptorImpl;
 import tv.amwa.maj.model.impl.AVCSubDescriptorImpl;
+import tv.amwa.maj.model.impl.AncillaryPacketsDescriptorImpl;
 import tv.amwa.maj.model.impl.ApplicationObjectImpl;
 import tv.amwa.maj.model.impl.ApplicationPluginObjectImpl;
 import tv.amwa.maj.model.impl.ApplicationReferencedObjectImpl;
 import tv.amwa.maj.model.impl.AS07CoreDMSFrameworkImpl;
 import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
+import tv.amwa.maj.model.impl.AS07DateTimeDescriptorImpl;
 import tv.amwa.maj.model.impl.AS07GSPDMSObjectImpl;
 import tv.amwa.maj.model.impl.AS07GspBdDMSFrameworkImpl;
 import tv.amwa.maj.model.impl.AS07GspTdDMSFrameworkImpl;
@@ -177,6 +179,7 @@ import tv.amwa.maj.model.impl.TextLocatorImpl;
 import tv.amwa.maj.model.impl.TimecodeSegmentImpl;
 import tv.amwa.maj.model.impl.TimecodeStream12MImpl;
 import tv.amwa.maj.model.impl.TimecodeStreamImpl;
+import tv.amwa.maj.model.impl.TimedTextDescriptorImpl;
 import tv.amwa.maj.model.impl.TimelineTrackImpl;
 import tv.amwa.maj.model.impl.TrackImpl;
 import tv.amwa.maj.model.impl.TransitionImpl;
@@ -291,7 +294,10 @@ public interface AAFSpecifiedClasses {
 		AS07DMSIdentifierSetImpl.class,
 		AS07GspBdDMSFrameworkImpl.class,
 		AS07GspTdDMSFrameworkImpl.class,
+		AS07DateTimeDescriptorImpl.class,
+		AncillaryPacketsDescriptorImpl.class,
 		AS07GSPDMSObjectImpl.class,
+		TimedTextDescriptorImpl.class,
 		TimelineTrackImpl.class,
 		ConstantValueImpl.class,
 		VaryingValueImpl.class,

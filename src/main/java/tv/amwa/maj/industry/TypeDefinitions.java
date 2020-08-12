@@ -135,6 +135,7 @@ import tv.amwa.maj.model.ContainerDefinition;
 import tv.amwa.maj.model.DefinitionObject;
 import tv.amwa.maj.model.EssenceData;
 import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;
+import tv.amwa.maj.model.impl.AS07CoreDMSDeviceObjectsImpl;
 import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
 import tv.amwa.maj.model.impl.AS07GSPDMSObjectImpl;
 import tv.amwa.maj.model.impl.CodecDefinitionImpl;
@@ -1754,6 +1755,13 @@ public interface TypeDefinitions {
 				Warehouse.lookForClass(RIFFChunkImpl.class));
 	
 
+	public static final TypeDefinitionStrongObjectReference AS07CoreDMSDeviceObjectsStrongReference =
+		new TypeDefinitionStrongObjectReferenceImpl(
+				new AUIDImpl(0x05022309, (short) 0x0000, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+				"AS07CoreDMSDeviceObjectsStrongReference",
+				Warehouse.lookForClass(AS07CoreDMSDeviceObjectsImpl.class));
+	
 	public static final TypeDefinitionStrongObjectReference AS07GSPDMSObjectStrongReference =
 		new TypeDefinitionStrongObjectReferenceImpl(
 				new AUIDImpl(0x05022209, (short) 0x0000, (short) 0x0000,
@@ -2864,10 +2872,17 @@ public interface TypeDefinitions {
 
 	public static final TypeDefinitionVariableArrayImpl AS07GSPDMSObjectStrongReferenceVector =
 		new TypeDefinitionVariableArrayImpl(
-				new AUIDImpl(0x05024809, (short) 0x0000, (short) 0x0000,
+				new AUIDImpl(0x05024801, (short) 0x0000, (short) 0x0000,
 						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
 				"AS07GSPDMSObjectStrongReferenceVector",
 				AS07GSPDMSObjectStrongReference);
+	
+	public static final TypeDefinitionVariableArrayImpl AS07CoreDMSDeviceObjectsStrongReferenceVector =
+		new TypeDefinitionVariableArrayImpl(
+				new AUIDImpl(0x05024809, (short) 0x0000, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+				"AS07CoreDMSDeviceObjectsStrongReferenceVector",
+				AS07CoreDMSDeviceObjectsStrongReference);
 
 	public static final TypeDefinitionVariableArrayImpl AS07DMSIdentifierStrongReferenceVector =
 		new TypeDefinitionVariableArrayImpl(

@@ -47,37 +47,6 @@ extends DescriptiveFrameworkImpl implements AS07GspTdDMSFramework{
 		this.textBasedObjects = textBasedObject;
 	}
 	
-
-	/*
-	@Override
-	@MediaProperty(uuid1 = 0x06010104, uuid2 = 0x0541, uuid3 = 0x0100,
-			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0d},
-			definedName = "TextBasedObject",
-			aliases = {  },
-			typeName = "AUID",
-			optional = true,
-			uniqueIdentifier = false,
-			pid = 0x800b,
-			symbol = "TextBasedObject")
-	public AUID getTextBasedObject() 
-		throws PropertyNotPresentException {
-
-		if (textBasedObject == null)
-			throw new PropertyNotPresentException("IdentifierValue property is not present.");
-		
-		return textBasedObject;
-	}
-	
-
-	@Override
-	@MediaPropertySetter("TextBasedObject")
-	public void setTextBasedObject(
-			AUID textBasedObject) {
-
-		this.textBasedObject = textBasedObject;
-	}
-	*/
-
 	@Override
 	@MediaProperty(uuid1 = 0x0d0e0101, uuid2 = 0x0702, uuid3 = 0x0301,
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},

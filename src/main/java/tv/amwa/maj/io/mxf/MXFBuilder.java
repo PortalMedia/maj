@@ -208,8 +208,13 @@ public class MXFBuilder {
 		FixedLengthPack fixedLengthValue = null;
 		boolean error = false;
 		try{
+			System.out.println(key.toString());
+			if(key.toString().equals("urn:smpte:ul:060e2b34.02050101.0d010201.01110100")) {
+				int i = 0;
+			}
 			fixedLengthClass = Warehouse.lookForClass(key);
-			fixedLengthValue = (FixedLengthPack) fixedLengthClass.createInstance();
+			MetadataObject mob = fixedLengthClass.createInstance();
+			fixedLengthValue = (FixedLengthPack) mob;
 		}
 		catch (ClassCastException cce) {
 			throw new ClassCastException("The given key does not correspond to a metadata object that can be serialized as a fixed length pack. The key resolved to type " + fixedLengthClass.getName() + ".");
@@ -462,9 +467,6 @@ public class MXFBuilder {
 				else {
 					property = localSetClass.lookupPropertyDefinition(tag);
 					propertyKey = property.getAUID();
-				}
-				if(propertyKey.toString().equals("urn:smpte:ul:060e2b34.01010101.0d0e0101.07010403")) {
-					int xljkj = 0;
 				}
 				short shortLength = buffer.getShort();
 				length = (shortLength >= 0) ? shortLength : 65536 - shortLength;

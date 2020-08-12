@@ -3,7 +3,7 @@ package tv.amwa.maj.model;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
 
-public interface AS07TimecodeLabelSubdescriptor {
+public interface AS07TimecodeLabelSubdescriptor extends SubDescriptor {
 
 	String getDateTimeSymbol();
 

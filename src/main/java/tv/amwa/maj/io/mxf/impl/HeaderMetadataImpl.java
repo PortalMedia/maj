@@ -124,6 +124,7 @@ public class HeaderMetadataImpl
 		throws IllegalArgumentException {
 
 		try {
+			System.out.println("Before createFromBytes");
 			PrimerPack primerPack = PrimerPackImpl.createFromBytes(buffer);
 
 			if (primerPack == null)
@@ -162,10 +163,11 @@ public class HeaderMetadataImpl
 				if (lastFillSize > 0) continue;
 
 				UL key = MXFBuilder.readKey(buffer);
+				System.out.println("Last key found:" + key);
 				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010100")) {
 					System.out.println("FOUND AS07CoreDMSFramework");
 				}
-				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010300")) {
+				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d010101.01013000")) {
 					System.out.println("FOUND AS07DMSIdentifierSet");
 				}
 				long length = MXFBuilder.readBERLength(buffer);
@@ -191,7 +193,12 @@ public class HeaderMetadataImpl
 
 		// Resolve references
 		for ( ResolutionEntry resolutionEntry : resolutions ) {
-			resolutionEntry.resolve(referenceTable);
+			try {
+				resolutionEntry.resolve(referenceTable);
+			}
+			catch(Exception ex) {
+				ex.printStackTrace();
+			}
 		}
 
 		this.preface = preface;

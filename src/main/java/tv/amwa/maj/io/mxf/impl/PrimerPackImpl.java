@@ -280,6 +280,7 @@ public class PrimerPackImpl
 		throws EndOfDataException {
 
 		UL key = MXFBuilder.readKey(buffer);
+		System.out.println("Key:" + key);
 		long length = MXFBuilder.readBERLength(buffer);
 		int preserveLimit = buffer.limit();
 		PrimerPack primerPack = null;

@@ -87,6 +87,9 @@ public class CPSystemItemImpl
 		this.bitmap = bitmap;
 	}
 
+	public ByteBuffer getData() throws Exception {
+		throw new Exception("Not implemented");
+	}
 	@Override
 	public byte getRate() {
 		return rate;
