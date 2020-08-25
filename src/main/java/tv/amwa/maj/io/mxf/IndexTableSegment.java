@@ -18,6 +18,8 @@ package tv.amwa.maj.io.mxf;
 
 import tv.amwa.maj.exception.BadRateException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
+import tv.amwa.maj.industry.MediaProperty;
+import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.industry.MetadataObject;
 import tv.amwa.maj.integer.UInt32;
 import tv.amwa.maj.integer.UInt64;
@@ -470,4 +472,15 @@ public interface IndexTableSegment
 	 * @return Cloned copy of this index table segment.
 	 */
 	public IndexTableSegment clone();
+	
+	
+	
+	public boolean getSingleIndexLocation();
+	public void setSingleIndexLocation(
+			boolean singleIndexLocation);
+	public boolean getForwardIndexDirection();
+	public void setForwardIndexDirection(boolean forwardIndexDirection);
+	public boolean getSingleEssenceLocation();
+	public void setSingleEssenceLocation(
+			boolean singleEssenceLocation);
 }

@@ -74,7 +74,6 @@ public class TimedTextDescriptorImpl  extends AncillaryPacketsDescriptorImpl imp
 			aliases = {  },
 			typeName = "UTF16String",
 			optional = true,
-			pid = 0x3002,
 			uniqueIdentifier = false,
 			symbol = "NamespaceURI")
 	public String getNamespaceURI() 

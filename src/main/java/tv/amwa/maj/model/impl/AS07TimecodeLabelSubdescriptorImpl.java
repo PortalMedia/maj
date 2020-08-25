@@ -39,14 +39,8 @@ implements
 
 	
 	private String dateTimeSymbol = null;
-	private int dateTimeEssenceTrackID;
-	private int dateTimeChannelID;
-	/*
-	 DateTimeChannelID-key
-DateTimeChannelID-length
-DateTimeChannelID-value 
-	 
-	 */
+	private int dateTimeEssenceTrackID = 0;
+	private int dateTimeChannelID = 0;
 	//060E2B34 01010101 0D0E0101 07040101
 	@MediaProperty(uuid1 = 0x0d0e0101, uuid2 = 0x0704, uuid3 = 0x0103,
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},

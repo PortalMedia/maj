@@ -114,6 +114,9 @@ public class IndexTableSegmentImpl
 	private IndexEntry[] indexEntryArray = null;
 	private @UInt64 Long extStartOffset = null;
 	private @UInt64 Long vbeByteCount = null;
+	private boolean singleIndexLocation = false;
+	private boolean singleEssenceLocation = false;
+	private boolean forwardIndexDirection = false;
 	
 	public IndexTableSegmentImpl() { }
 	
@@ -251,6 +254,80 @@ public class IndexTableSegmentImpl
 		
 		this.indexSID = indexSID;
 	}
+	
+	@MediaProperty(uuid1 = 0x01040100, uuid2 = 0x0000, uuid3 = 0x0000,
+			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01 },
+			definedName = "SingleIndexLocation",
+			aliases = { },
+			typeName = "Boolean",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x3f11,
+			symbol = "SingleIndexLocation")
+	public boolean getSingleIndexLocation() {
+		
+		return singleIndexLocation;
+	}
+	
+	@MediaPropertySetter("SingleIndexLocation")
+	public void setSingleIndexLocation(
+			@UInt32 boolean singleIndexLocation) 
+		throws IllegalArgumentException {
+		
+		
+		this.singleIndexLocation = singleIndexLocation;
+	}
+	
+	//060e2b34.01040101.01040100.00000000
+	@MediaProperty(uuid1 = 0x01040100, uuid2 = 0x0000, uuid3 = 0x0000,
+			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x00 },
+			definedName = "ForwardIndexDirection",
+			aliases = { },
+			typeName = "Boolean",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x3f13,
+			symbol = "ForwardIndexDirection")
+	public boolean getForwardIndexDirection() {
+		
+		return forwardIndexDirection;
+	}
+	
+	@MediaPropertySetter("ForwardIndexDirection")
+	public void setForwardIndexDirection(
+			@UInt32 boolean forwardIndexDirection) 
+		throws IllegalArgumentException {
+		
+		
+		this.forwardIndexDirection = forwardIndexDirection;
+	}
+	
+	//060e2b34.027f0101.0d010201.01100100
+	@MediaProperty(uuid1 = 0x0d010201, uuid2 = 0x0110, uuid3 = 0x0100,
+			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x02, 0x7f, 0x01, 0x01 },
+			definedName = "SingleEssenceLocation",
+			aliases = { },
+			typeName = "Boolean",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x3f12,
+			symbol = "SingleEssenceLocation")
+	public boolean getSingleEssenceLocation() {
+		
+		return singleEssenceLocation;
+	}
+	
+	@MediaPropertySetter("SingleEssenceLocation")
+	public void setSingleEssenceLocation(
+			boolean singleEssenceLocation) 
+		throws IllegalArgumentException {
+		
+		this.singleEssenceLocation = singleEssenceLocation;
+	}
+	
+	
+	
+	
 	
 	@MediaProperty(uuid1 = 0x01030404, uuid2 = 0x0000, uuid3 = 0x0000,
 			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x04 },

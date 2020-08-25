@@ -270,6 +270,13 @@ public interface ContainerConstant {
 	public final static AUID MXFGC_Framewrapped_SMPTE_D10_625x50I_30Mbps_ExtendedTemplate = new tv.amwa.maj.record.impl.AUIDImpl(
 			0x0d010301, (short) 0x0201, (short) 0x0502, 
 			new byte[] { 0x06, 0x0e, 0x2b, 0x34, 0x04, 0x01, 0x01, 0x01 });
+	
+
+	//060E2B34 01020101 0D010301 17010B01
+	@ContainerDescription(description="")
+	public final static AUID MXFGC = new tv.amwa.maj.record.impl.AUIDImpl(
+			0x0d010301, (short) 0x1701, (short) 0x0b01, 
+			new byte[] { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x02, 0x01, 0x01 });
 
 	/**
 	 * <p>MXF generic container for SMPTE-defined D-10 essence data defined at 625 lines, 50&nbsp;Hz and 

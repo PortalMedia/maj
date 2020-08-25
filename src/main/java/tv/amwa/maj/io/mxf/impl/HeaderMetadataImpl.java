@@ -167,7 +167,7 @@ public class HeaderMetadataImpl
 				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010100")) {
 					System.out.println("FOUND AS07CoreDMSFramework");
 				}
-				if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d010101.01013000")) {
+				if(key.toString().equals("urn:smpte:ul:060e2b34.02050101.0d010201.01030400")) {
 					System.out.println("FOUND AS07DMSIdentifierSet");
 				}
 				long length = MXFBuilder.readBERLength(buffer);
@@ -193,12 +193,8 @@ public class HeaderMetadataImpl
 
 		// Resolve references
 		for ( ResolutionEntry resolutionEntry : resolutions ) {
-			try {
-				resolutionEntry.resolve(referenceTable);
-			}
-			catch(Exception ex) {
-				ex.printStackTrace();
-			}
+			resolutionEntry.resolve(referenceTable);
+			
 		}
 
 		this.preface = preface;

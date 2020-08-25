@@ -74,6 +74,21 @@ public class IndexPrimerPackImpl
 	private final static AUID vbeByteCountKey =
 		new AUIDImpl(0x04060205, (short) 0x0000, (short) 0x0000,
 				new byte[] { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0a } );
+	
+
+	//urn:smpte:ul:060e2b34.01040101.01040100.00000000
+	private final static AUID singleIndexLocation =
+		new AUIDImpl(0x01040100, (short) 0x0000, (short) 0x0000,
+				new byte[] { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x00 } );
+	
+	//060e2b34.01040101.01040100.00000000
+	private final static AUID forwardIndexDirection =
+			new AUIDImpl(0x01040100, (short) 0x0000, (short) 0x0000,
+					new byte[] { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01 } );
+	//060e2b34.01040101.01040100.00000000
+	private final static AUID singleEssenceLocation =
+			new AUIDImpl(0x01040100, (short) 0x0000, (short) 0x0000,
+					new byte[] { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01 } );
 
 	static {
 		indexTags.put(MXFConstants.InstanceTag, MXFConstants.InstanceUID);
@@ -89,6 +104,9 @@ public class IndexPrimerPackImpl
 		indexTags.put((short) 0x3f0a, indexEntryArrayKey);
 		indexTags.put((short) 0x3f0f, extStartOffsetKey);
 		indexTags.put((short) 0x3f10, vbeByteCountKey);
+		indexTags.put((short) 0x3f11, singleIndexLocation);
+		indexTags.put((short) 0x3f13, forwardIndexDirection);
+		indexTags.put((short) 0x3f12, singleEssenceLocation);
 
 		for (Entry<Short, AUID> entry : indexTags.entrySet()) {
 			reverseIndexTags.put(entry.getValue(), entry.getKey());

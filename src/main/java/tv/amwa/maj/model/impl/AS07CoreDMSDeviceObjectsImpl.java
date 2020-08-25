@@ -18,17 +18,17 @@ import tv.amwa.maj.industry.StrongReferenceVector;
 import tv.amwa.maj.model.AS07CoreDMSFramework;
 import tv.amwa.maj.record.AUID;
 
-@MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0100,
+@MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0200,
 		  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
-		  definedName = "AS07CoreDMSFramework",
+		  definedName = "AS07CoreDMSDeviceObjects",
 		  aliases = {},
-		  description = "AS07CoreDMSFramework",
-		  symbol = "AS07CoreDMSFramework")
+		  description = "AS07CoreDMSDeviceObjects",
+		  symbol = "AS07CoreDMSDeviceObjects")
 public class AS07CoreDMSDeviceObjectsImpl
 		extends DescriptiveFrameworkImpl
 		implements AS07CoreDMSDeviceObjects
 {
-	private static final long serialVersionUID = 1456456435L;
+	private static final long serialVersionUID = 1454446435L;
 
 	private String deviceType = null;
 	private String manufacturer = null;
@@ -44,7 +44,6 @@ public class AS07CoreDMSDeviceObjectsImpl
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8000,
 			symbol = "UsageDescription")
 	public String getUsageDescription() 
 		throws PropertyNotPresentException {
@@ -67,7 +66,6 @@ public class AS07CoreDMSDeviceObjectsImpl
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8000,
 			symbol = "SerialNumber")
 	public String getSerialNumber() 
 		throws PropertyNotPresentException {
@@ -90,7 +88,6 @@ public class AS07CoreDMSDeviceObjectsImpl
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8000,
 			symbol = "Model")
 	public String getModel() 
 		throws PropertyNotPresentException {
@@ -114,7 +111,6 @@ public class AS07CoreDMSDeviceObjectsImpl
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8000,
 			symbol = "Manufacturer")
 	public String getManufacturer() 
 		throws PropertyNotPresentException {
@@ -138,7 +134,6 @@ public class AS07CoreDMSDeviceObjectsImpl
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8000,
 			symbol = "DeviceType")
 	public String getDeviceType() 
 		throws PropertyNotPresentException {

@@ -83,7 +83,6 @@ public class AS07DateTimeDescriptorImpl  extends AAFFileDescriptorImpl implement
 			aliases = {  },
 			typeName = "UInt32",
 			optional = true,
-			pid = 0x3002,
 			uniqueIdentifier = false,
 			symbol = "ContainerDuration")
 	public int getContainerDuration() 
