@@ -63,7 +63,7 @@ public class AS07CoreDMSDeviceObjectsImpl
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
 			definedName = "SerialNumber",
 			aliases = {  },
-			typeName = "UTF8String",
+			typeName = "ASCIIString",
 			optional = true,
 			uniqueIdentifier = false,
 			symbol = "SerialNumber")
@@ -85,7 +85,7 @@ public class AS07CoreDMSDeviceObjectsImpl
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
 			definedName = "Model",
 			aliases = {  },
-			typeName = "UTF8String",
+			typeName = "ASCIIString",
 			optional = true,
 			uniqueIdentifier = false,
 			symbol = "Model")
