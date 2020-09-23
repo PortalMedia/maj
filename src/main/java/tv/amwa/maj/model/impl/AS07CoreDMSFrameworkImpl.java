@@ -411,11 +411,10 @@ public class AS07CoreDMSFrameworkImpl
 			typeName = "AS07CoreDMSDeviceObjectsStrongReferenceVector",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8005,
 			symbol = "Devices")
 	public List<AS07CoreDMSDeviceObjectsImpl> getDevices()
 			throws PropertyNotPresentException {
-
+		if(devices.size()==0) throw new PropertyNotPresentException();
 		return new ArrayList<AS07CoreDMSDeviceObjectsImpl>(devices);
 	}
 

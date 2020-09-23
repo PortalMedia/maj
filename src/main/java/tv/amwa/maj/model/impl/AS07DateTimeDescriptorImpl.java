@@ -1,8 +1,5 @@
 package tv.amwa.maj.model.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaClass;
 import tv.amwa.maj.industry.MediaProperty;
@@ -120,8 +117,6 @@ public class AS07DateTimeDescriptorImpl  extends AAFFileDescriptorImpl implement
 	@Override
 	@MediaPropertySetter("DateTimeDropFrame")
 	public void setDateTimeDropFrame(boolean dateTimeDropFrameFlag) {
-
-		
 		this.dateTimeDropFrameFlag = dateTimeDropFrameFlag;
 	}
 	@Override

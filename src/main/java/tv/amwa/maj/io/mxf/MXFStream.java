@@ -530,6 +530,7 @@ public class MXFStream {
 
 		PrimerPack primerPack = new PrimerPackImpl();
 		primerPack.addLocalTagEntry(MXFConstants.InstanceTag, MXFConstants.InstanceUID);
+	
 		long lengthOfAllSets = PrimerPackImpl.addPropertiesForObject(primerPack, preface);
 
 		ByteBuffer primerAndPreface = ByteBuffer.allocate((int) (lengthOfAllSets + PrimerPackImpl.lengthAsBytes(primerPack)));
@@ -544,6 +545,7 @@ public class MXFStream {
 				PropertyValue headItem = stillToWrite.remove(0);
 				MXFBuilder.writeLocalSet(headItem, primerAndPreface, primerPack, stillToWrite);
 			}
+			System.out.println(primerPack);
 		}
 		catch (InsufficientSpaceException ise) {
 			throw new MAJMXFStreamException("Unxepectedly, insufficient space to write primer pack and local sets.", ise);
