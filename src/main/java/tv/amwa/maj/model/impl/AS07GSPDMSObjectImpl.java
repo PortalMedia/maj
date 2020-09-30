@@ -3,9 +3,7 @@ package tv.amwa.maj.model.impl;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import tv.amwa.maj.exception.ObjectAlreadyAttachedException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
@@ -14,9 +12,7 @@ import tv.amwa.maj.industry.MediaListAppend;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertyCount;
 import tv.amwa.maj.industry.MediaPropertySetter;
-import tv.amwa.maj.industry.MediaSetAdd;
 import tv.amwa.maj.industry.StrongReferenceVector;
-import tv.amwa.maj.model.AS07DMSIdentifierSet;
 import tv.amwa.maj.model.AS07GSPDMSObject;
 import tv.amwa.maj.record.AUID;
 //060E2B34 02530101 0D0E0101 07010400
@@ -45,7 +41,7 @@ AS07GSPDMSObject{
 	private String textDataDescriptions = null;
 	private String note = null;
 	private int genericStreamId;
-	private List<AS07DMSIdentifierSetImpl> identifiers = Collections.synchronizedList(new ArrayList<AS07DMSIdentifierSetImpl>());
+	private List<AS07DMSIdentifierSetImpl> identifiers = null;
 	
 	//060E2B34 0101010D 04060806 00000000
 	@MediaProperty(uuid1 = 0x04060806, uuid2 = 0x0000, uuid3 = 0x0000,
@@ -53,9 +49,8 @@ AS07GSPDMSObject{
 			definedName = "TextBasedMetadataPayloadSchemeIdentifier",
 			aliases = {  },
 			typeName = "AUID",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800c,
 			symbol = "TextBasedMetadataPayloadSchemeIdentifier")
 	public AUID getTextBasedMetadataPayloadSchemeIdentifier() 
 		throws PropertyNotPresentException {
@@ -79,9 +74,8 @@ AS07GSPDMSObject{
 			definedName = "Rfc5646TextLanguageCode",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800d,
 			symbol = "Rfc5646TextLanguageCode")
 	public String getRfc5646TextLanguageCode() 
 		throws PropertyNotPresentException {
@@ -104,9 +98,8 @@ AS07GSPDMSObject{
 			definedName = "MimeMediaType",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800e,
 			symbol = "MimeMediaType")
 	public String getMimeMediaType() 
 		throws PropertyNotPresentException {
@@ -129,9 +122,8 @@ AS07GSPDMSObject{
 			definedName = "TextMimeMediaType",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800f,
 			symbol = "TextMimeMediaType")
 	public String getTextMimeMediaType() 
 		throws PropertyNotPresentException {
@@ -154,9 +146,8 @@ AS07GSPDMSObject{
 			definedName = "DataDescriptions",
 			aliases = {  },
 			typeName = "ASCIIString",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8010,
 			symbol = "DataDescriptions")
 	public String getDataDescriptions() 
 		throws PropertyNotPresentException {
@@ -182,7 +173,6 @@ AS07GSPDMSObject{
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8011,
 			symbol = "TextDataDescriptions")
 	public String getTextDataDescriptions() 
 		throws PropertyNotPresentException {
@@ -250,12 +240,14 @@ AS07GSPDMSObject{
 			definedName = "Identifiers",
 			aliases = { },
 			typeName = "AS07DMSIdentifierStrongReferenceVector",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8014,
 			symbol = "Identifiers")
-	public List<AS07DMSIdentifierSetImpl> getIdentifiers()
+	public List<AS07DMSIdentifierSetImpl> getIdentifiers() throws PropertyNotPresentException
 			{
+		if(identifiers==null)
+			throw new PropertyNotPresentException("Missing identifiers");
+		
 		return StrongReferenceVector.getOptionalList(identifiers);
 	}
 	@MediaPropertySetter("Identifiers")

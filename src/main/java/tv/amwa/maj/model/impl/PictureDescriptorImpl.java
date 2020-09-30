@@ -120,14 +120,14 @@ public class PictureDescriptorImpl
 	
 	private int sampledHeight = 0;
 	private int sampledWidth = 0;
-	private int sampledXOffset = 0;
-	private int sampledYOffset = 0;
+	private int sampledXOffset = -1;
+	private int sampledYOffset = -1;
 	private boolean sampledValuesPresent = false;
 	
 	private int displayHeight = 0;
 	private int displayWidth = 0;
-	private int displayXOffset = 0;
-	private int displayYOffset = 0;
+	private int displayXOffset = -1;
+	private int displayYOffset = -1;
 	private boolean displayValuesPresent = false;
 	private Integer displayF2Offset = null;
 	
@@ -186,10 +186,10 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x320F,
 			symbol = "AlphaTransparency")
-	public AlphaTransparencyType getAlphaTransparency() {
+	public AlphaTransparencyType getAlphaTransparency() throws PropertyNotPresentException{
 
 		if (alphaTransparency == null)
-			return ALPHATRANSPARENCY_DEFAULT;
+			throw new PropertyNotPresentException("Missing alpha transparency");
 		else
 			return alphaTransparency;
 	}
@@ -408,12 +408,12 @@ public class PictureDescriptorImpl
 			typeName = "Int32",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x320A,
+			pid = 0x320a,
 			symbol = "DisplayXOffset")
-	public int getDisplayXOffset() {
+	public int getDisplayXOffset() throws PropertyNotPresentException{
 		
-		if (displayValuesPresent == false)
-			return 0;
+		if (displayXOffset < 0)
+			throw new PropertyNotPresentException("Missing DisplayYOffset");
 		else
 			return displayXOffset;
 	}
@@ -434,10 +434,10 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x320B,
 			symbol = "DisplayYOffset")
-	public int getDisplayYOffset() {
+	public int getDisplayYOffset() throws PropertyNotPresentException{
 		
-		if (displayValuesPresent == false)
-			return 0;
+		if (displayYOffset < 0)
+			throw new PropertyNotPresentException("Missing DisplayYOffset");
 		else
 			return displayYOffset;
 	}
@@ -488,10 +488,10 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3214,
 			symbol = "ImageEndOffset")
-	public int getImageEndOffset() {
+	public int getImageEndOffset() throws PropertyNotPresentException{
 
 		if (imageEndOffset == null)
-			return IMAGEENDOFFSET_DEFAULT;
+			throw new PropertyNotPresentException("Missing ImageEndOffset");
 		else
 			return imageEndOffset;
 	}
@@ -523,10 +523,10 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3213,
 			symbol = "ImageStartOffset")
-	public int getImageStartOffset() {
+	public int getImageStartOffset() throws PropertyNotPresentException{
 
 		if (imageStartOffset == null)
-			return IMAGESTARTOFFSET_DEFAULT;
+			throw new PropertyNotPresentException("Missing Image Start Offset");
 		else
 			return imageStartOffset;
 	}
@@ -587,12 +587,11 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3211,
 			symbol = "ImageAlignmentFactor")
-	public int getImageAlignmentFactor() {
+	public int getImageAlignmentFactor() throws PropertyNotPresentException{
 
 		if (imageAlignmentFactor == null)
-			return IMAGEALIGNMENTFACTOR_DEFAULT;
-		else
-			return imageAlignmentFactor;
+			throw new PropertyNotPresentException();
+		return imageAlignmentFactor;
 	}
 
 	@MediaPropertySetter("ImageAlignmentFactor")
@@ -739,10 +738,10 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3206,
 			symbol = "SampledXOffset")
-	public int getSampledXOffset() {
+	public int getSampledXOffset() throws PropertyNotPresentException{
 		
-		if (sampledValuesPresent == false)
-			return 0;
+		if (sampledXOffset < 0)
+			throw new PropertyNotPresentException();
 		else
 			return sampledXOffset;
 	}
@@ -763,10 +762,10 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3207,
 			symbol = "SampledYOffset")
-	public int getSampledYOffset() {
+	public int getSampledYOffset() throws PropertyNotPresentException {
 		
-		if (sampledValuesPresent == false)
-			return 0;
+		if (sampledYOffset < 0)
+			throw new PropertyNotPresentException();
 		else
 			return sampledYOffset;
 	}
@@ -816,12 +815,11 @@ public class PictureDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3216,
 			symbol = "StoredF2Offset")
-	public int getStoredF2Offset() {
+	public int getStoredF2Offset() throws PropertyNotPresentException{
 
 		if (storedF2Offset == null)
-			return STOREDF2OFFSET_DEFAULT;
-		else
-			return storedF2Offset;
+			throw new PropertyNotPresentException("Missing StoredF2Offset");
+		return storedF2Offset;
 	}
 
 	@MediaPropertySetter("StoredF2Offset")

@@ -91,11 +91,11 @@ public class EventImpl
 	 */
 	private static final long serialVersionUID = 4054403398629042547L;
 	
-	private long eventPosition = 0l;
+	private long eventPosition = -1l;
 	private String eventComment = null;
 
 	// TODO check this default
-	private boolean eventPositionPresent = true;
+	private boolean eventPositionPresent = false;
 	
 	@MediaProperty(uuid1 = 0x05300404, uuid2 = (short) 0x0100, uuid3 = (short) 0x0000,
 			uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x02},
@@ -127,15 +127,15 @@ public class EventImpl
 			definedName = "EventPosition",
 			aliases = { "Position" },
 			typeName = "PositionType",
-			optional = false,
+			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x0601,
 			symbol = "EventPosition")	
 	public long getEventPosition() 
-		throws BadPropertyException {
+		throws PropertyNotPresentException {
 
-		if (eventPositionPresent == false)
-			throw new BadPropertyException("The event position property is not present in the context of this event.");
+		if (eventPosition < 0l)
+			throw new PropertyNotPresentException("The event position property is not present in the context of this event.");
 		
 		return eventPosition;
 	}
@@ -144,10 +144,6 @@ public class EventImpl
 	public void setEventPosition(
 			long position) 
 		throws BadPropertyException {
-
-		if (eventPositionPresent == false)
-			throw new BadPropertyException("The event position property is not present in the context of this event.");
-
 		this.eventPosition = position;
 	}
 

@@ -31,11 +31,10 @@ extends DescriptiveFrameworkImpl implements AS07GspBdDMSFramework{
 			typeName = "AS07GSPDMSObjectStrongReference",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x800b,
 			symbol = "TextBasedObjects")
 	public AS07GSPDMSObject getTextBasedObject() 
 		throws PropertyNotPresentException {
-
+		if(textBasedObjects == null) throw new PropertyNotPresentException();
 		return textBasedObjects;
 	}
 	

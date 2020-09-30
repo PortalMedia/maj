@@ -53,9 +53,8 @@ extends DescriptiveFrameworkImpl implements AS07GspTdDMSFramework{
 			definedName = "PrimaryRFC5646LanguageCode",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800a,
 			symbol = "PrimaryRFC5646LanguageCode")
 	public String getPrimaryRFC5646LanguageCode() 
 		throws PropertyNotPresentException {

@@ -158,14 +158,17 @@ public class InterchangeObjectImpl
 			definedName = "ObjectClass",
 			aliases = { "ObjClass" },
 			typeName = "ClassDefinitionWeakReference", 
-			optional = false,
+			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x0101,
 			symbol = "ObjectClass")
-	public ClassDefinition getObjectClass()  {
+	public ClassDefinition getObjectClass() throws PropertyNotPresentException {
 
 		if (objectClass == null) 
 			objectClass = new WeakReference<ClassDefinition>(Warehouse.lookForClass(this.getClass()));
+		
+		if(objectClass == null)
+			throw new PropertyNotPresentException();
 		
 		return objectClass.getTarget();
 	}

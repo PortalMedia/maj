@@ -5,6 +5,7 @@ import tv.amwa.maj.industry.MediaClass;
 import tv.amwa.maj.industry.MediaProperty;
 import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.record.AUID;
+import tv.amwa.maj.record.Rational;
 
 @MediaClass(uuid1 = 0x0d010101, uuid2 = 0x0101, uuid3 = 0x4600,
 uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
@@ -16,7 +17,7 @@ public class AS07DateTimeDescriptorImpl  extends AAFFileDescriptorImpl implement
 
 	private static final long serialVersionUID = 14588466436L;
 
-	private String dateTimeRate = null;
+	private Rational dateTimeRate = null;
 	private int containerDuration = 0;
 	private AUID essenceContainer = null;
 	private boolean dateTimeDropFrameFlag = false;
@@ -29,12 +30,12 @@ public class AS07DateTimeDescriptorImpl  extends AAFFileDescriptorImpl implement
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x05},
 			definedName = "DateTimeRate",
 			aliases = {  },
-			typeName = "UTF16String",
+			typeName = "Rational",
 			optional = true,
 			pid = 0x3501,
 			uniqueIdentifier = false,
 			symbol = "DateTimeRate")
-	public String getDateTimeRate() 
+	public Rational getDateTimeRate() 
 		throws PropertyNotPresentException {
 
 		return dateTimeRate;
@@ -43,7 +44,7 @@ public class AS07DateTimeDescriptorImpl  extends AAFFileDescriptorImpl implement
 
 	@Override
 	@MediaPropertySetter("DateTimeRate")
-	public void setDateTimeRate(String dateTimeRate) {
+	public void setDateTimeRate(Rational dateTimeRate) {
 
 		this.dateTimeRate = dateTimeRate;
 	}

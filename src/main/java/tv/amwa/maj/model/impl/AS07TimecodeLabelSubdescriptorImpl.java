@@ -39,8 +39,8 @@ implements
 
 	
 	private String dateTimeSymbol = null;
-	private int dateTimeEssenceTrackID = 0;
-	private int dateTimeChannelID = 0;
+	private int dateTimeEssenceTrackID  = -1;
+	private int dateTimeChannelID = -1;
 	//060E2B34 01010101 0D0E0101 07040101
 	@MediaProperty(uuid1 = 0x0d0e0101, uuid2 = 0x0704, uuid3 = 0x0103,
 			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
@@ -49,9 +49,10 @@ implements
 			typeName = "UInt32",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8018,
 			symbol = "DateTimeChannelID")
-	public int getDateTimeChannelID() {
+	public int getDateTimeChannelID() throws PropertyNotPresentException {
+		if(dateTimeChannelID <= 0)
+			throw new PropertyNotPresentException("Missing dateTimeChannelID");
 		return dateTimeChannelID;
 	}
 	
@@ -66,11 +67,12 @@ implements
 			definedName = "DateTimeSymbol",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8016,
 			symbol = "DateTimeSymbol")
-	public String getDateTimeSymbol() {
+	public String getDateTimeSymbol() throws PropertyNotPresentException{
+		if(dateTimeSymbol == null)
+			throw new PropertyNotPresentException("Missing DateTime Symbol");
 		return dateTimeSymbol;
 	}
 	
@@ -89,9 +91,10 @@ implements
 			typeName = "UInt32",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8016,
 			symbol = "DateTimeEssenceTrackID")
 	public int getDateTimeEssenceTrackID() {
+		if(dateTimeEssenceTrackID <= 0)
+			throw new PropertyNotPresentException("Missing dateTimeEssenceTrackID");
 		return dateTimeEssenceTrackID;
 	}
 	

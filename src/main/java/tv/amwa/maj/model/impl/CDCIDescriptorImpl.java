@@ -300,10 +300,10 @@ public class CDCIDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3303,
 			symbol = "ColorSiting")
-	public ColorSitingType getColorSiting() {
+	public ColorSitingType getColorSiting() throws PropertyNotPresentException{
 
 		if (colorSiting == null)
-			return COLORSITING_DEFAULT;
+			throw new PropertyNotPresentException();
 		else
 			return colorSiting;
 	}
@@ -462,12 +462,11 @@ public class CDCIDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3305,
 			symbol = "WhiteRefLevel")
-	public int getWhiteRefLevel() {
-
+	public int getWhiteRefLevel() throws PropertyNotPresentException{
 		if (whiteRefLevel == null)
-			return maximumLevel;
-		else
-			return whiteRefLevel;
+			throw new PropertyNotPresentException("Cannot set the white reference level of this CDCI descriptor to a negative value.");
+		
+		return whiteRefLevel;
 	}
 
 	public void setWhiteRefLevel(

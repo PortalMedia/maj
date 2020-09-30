@@ -26,12 +26,12 @@ public class TimedTextDescriptorImpl  extends AncillaryPacketsDescriptorImpl imp
 			definedName = "ResourceId",
 			aliases = {  },
 			typeName = "AUID",
-			optional = true,
-			pid = 0x801a,
+			optional = false,
 			uniqueIdentifier = false,
 			symbol = "ResourceId")
 	public AUID getResourceId() 
 		throws PropertyNotPresentException {
+		if(resourceId == null) throw new PropertyNotPresentException();
 
 		return resourceId;
 	}
@@ -73,12 +73,12 @@ public class TimedTextDescriptorImpl  extends AncillaryPacketsDescriptorImpl imp
 			definedName = "NamespaceURI",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			symbol = "NamespaceURI")
 	public String getNamespaceURI() 
 		throws PropertyNotPresentException {
-
+		if(namespaceURI == null) throw new PropertyNotPresentException();
 		return namespaceURI;
 	}
 	

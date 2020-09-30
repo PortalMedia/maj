@@ -55,7 +55,7 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "ShimName",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			pid = 0x8000,
 			symbol = "ShimName")
@@ -80,13 +80,14 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "ResponsibleOrganizationName",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8001,
 			symbol = "ResponsibleOrganizationName")
 	public String getResponsibleOrganizationName() 
 		throws PropertyNotPresentException {
 
+		if(responsibleOrganizationName==null)
+			throw new PropertyNotPresentException("Missing responsibleOrganizationName");
 		return responsibleOrganizationName;
 	}
 	
@@ -109,7 +110,9 @@ public class AS07CoreDMSFrameworkImpl
 			symbol = "ResponsibleOrganizationCode")
 	public String getResponsibleOrganizationCode() 
 		throws PropertyNotPresentException {
-
+		if(responsibleOrganizationCode == null) {
+			throw new PropertyNotPresentException("Responsible Organization Code is not present");
+		}
 		return responsibleOrganizationCode;
 	}
 	
@@ -126,12 +129,15 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "PictureFormat",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			pid = 0x8002,
 			symbol = "PictureFormat")
 	public String getPictureFormat() 
 		throws PropertyNotPresentException {
+		if(pictureFormat == null) {
+			throw new PropertyNotPresentException("PictureFormat is not present");
+		}
 
 		return pictureFormat;
 	}
@@ -151,7 +157,7 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "Captions",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			pid = 0x8003,
 			symbol = "Captions")
@@ -175,12 +181,10 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "AudioTrackLayout",
 			aliases = {  },
 			typeName = "AUID",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8004,
 			symbol = "AudioTrackLayout")
-	public AUID getAudioTrackLayout() 
-		throws PropertyNotPresentException {
+	public AUID getAudioTrackLayout() {
 
 		return audioTrackLayout;
 	}
@@ -205,6 +209,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getWorkingTitle() 
 		throws PropertyNotPresentException {
 
+		if(workingTitle == null) {
+			throw new PropertyNotPresentException("WorkingTitle is not present");
+		}
 		return workingTitle;
 	}
 	
@@ -227,6 +234,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getSecondaryTitle() 
 		throws PropertyNotPresentException {
 
+		if(secondaryTitle == null) {
+			throw new PropertyNotPresentException("SecondaryTitle is not present");
+		}
 		return secondaryTitle;
 	}
 	
@@ -258,6 +268,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getAudioTrackPrimaryLanguage() 
 		throws PropertyNotPresentException {
 
+		if(audioTrackPrimaryLanguage == null) {
+			throw new PropertyNotPresentException("AudioTrackPrimaryLanguage is not present");
+		}
 		return audioTrackPrimaryLanguage;
 	}
 	
@@ -278,6 +291,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getAudioTrackSecondaryLanguage() 
 		throws PropertyNotPresentException {
 
+		if(audioTrackSecondaryLanguage == null) {
+			throw new PropertyNotPresentException("AudioTrackSecondaryLanguage is not present");
+		}
 		return audioTrackSecondaryLanguage;
 	}
 
@@ -294,6 +310,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getAudioTrackLayoutComment() 
 		throws PropertyNotPresentException {
 
+		if(audioTrackLayoutComment == null) {
+			throw new PropertyNotPresentException("AudioTrackLayoutComment is not present");
+		}
 		return audioTrackLayoutComment;
 	}
 	
@@ -310,7 +329,7 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "IntendedAFD",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			pid = 0x8006,
 			symbol = "IntendedAFD")
@@ -341,6 +360,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getNatureOfOrganization() 
 		throws PropertyNotPresentException {
 
+		if(natureOfOrganization == null) {
+			throw new PropertyNotPresentException("NatureOfOrganization is not present");
+		}
 		return natureOfOrganization;
 	}
 	
@@ -356,7 +378,7 @@ public class AS07CoreDMSFrameworkImpl
 			definedName = "Identifiers",
 			aliases = { },
 			typeName = "AS07DMSIdentifierStrongReferenceVector",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			pid = 0x8014,
 			symbol = "Identifiers")

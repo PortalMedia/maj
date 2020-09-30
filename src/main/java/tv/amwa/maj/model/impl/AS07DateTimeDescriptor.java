@@ -1,20 +1,17 @@
 package tv.amwa.maj.model.impl;
 
 import tv.amwa.maj.exception.PropertyNotPresentException;
-import tv.amwa.maj.industry.MediaProperty;
-import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.model.AAFFileDescriptor;
-import tv.amwa.maj.model.EssenceDescriptor;
-import tv.amwa.maj.model.Locator;
 import tv.amwa.maj.record.AUID;
+import tv.amwa.maj.record.Rational;
 
 public interface AS07DateTimeDescriptor extends AAFFileDescriptor{
 
 	int getContainerDuration() throws PropertyNotPresentException;
 	
-	public String getDateTimeRate() 
+	public Rational getDateTimeRate() 
 			throws PropertyNotPresentException;
-	public void setDateTimeRate(String dateTimeRate);
+	public void setDateTimeRate(Rational dateTimeRate);
 
 	void setContainerDuration(int duration);
 	public AUID getEssenceContainer() 

@@ -1,22 +1,9 @@
 package tv.amwa.maj.model.impl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import tv.amwa.maj.exception.ObjectAlreadyAttachedException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
 import tv.amwa.maj.industry.MediaClass;
-import tv.amwa.maj.industry.MediaListAppend;
 import tv.amwa.maj.industry.MediaProperty;
-import tv.amwa.maj.industry.MediaPropertyCount;
 import tv.amwa.maj.industry.MediaPropertySetter;
-import tv.amwa.maj.industry.MediaSetAdd;
-import tv.amwa.maj.industry.StrongReferenceVector;
-import tv.amwa.maj.model.AS07CoreDMSFramework;
-import tv.amwa.maj.record.AUID;
 
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0200,
 		  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
@@ -47,7 +34,8 @@ public class AS07CoreDMSDeviceObjectsImpl
 			symbol = "UsageDescription")
 	public String getUsageDescription() 
 		throws PropertyNotPresentException {
-
+		if(usageDescription == null)
+			throw new PropertyNotPresentException("UsageDescription not present");
 		return usageDescription;
 	}
 	
@@ -69,6 +57,8 @@ public class AS07CoreDMSDeviceObjectsImpl
 			symbol = "SerialNumber")
 	public String getSerialNumber() 
 		throws PropertyNotPresentException {
+		if(serialNumber == null)
+			throw new PropertyNotPresentException("SerialNumber not present");
 
 		return serialNumber;
 	}
@@ -91,6 +81,8 @@ public class AS07CoreDMSDeviceObjectsImpl
 			symbol = "Model")
 	public String getModel() 
 		throws PropertyNotPresentException {
+		if(model == null)
+			throw new PropertyNotPresentException("Model not present");
 
 		return model;
 	}
@@ -114,6 +106,8 @@ public class AS07CoreDMSDeviceObjectsImpl
 			symbol = "Manufacturer")
 	public String getManufacturer() 
 		throws PropertyNotPresentException {
+		if(manufacturer == null)
+			throw new PropertyNotPresentException("Manufacturer not present");
 
 		return manufacturer;
 	}
@@ -137,6 +131,9 @@ public class AS07CoreDMSDeviceObjectsImpl
 			symbol = "DeviceType")
 	public String getDeviceType() 
 		throws PropertyNotPresentException {
+
+		if(deviceType == null)
+			throw new PropertyNotPresentException("DeviceType not present");
 
 		return deviceType;
 	}

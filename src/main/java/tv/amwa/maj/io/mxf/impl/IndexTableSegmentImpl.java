@@ -78,6 +78,7 @@ import tv.amwa.maj.io.mxf.UL;
 import tv.amwa.maj.io.mxf.UnitType;
 import tv.amwa.maj.misctype.LengthType;
 import tv.amwa.maj.misctype.PositionType;
+import tv.amwa.maj.record.AUID;
 import tv.amwa.maj.record.Rational;
 import tv.amwa.maj.record.impl.AUIDImpl;
 
@@ -174,7 +175,10 @@ public class IndexTableSegmentImpl
 			uniqueIdentifier = false,
 			pid = 0x3f0c,
 			symbol = "IndexStartPosition")
-	public @PositionType long getIndexStartPosition() {
+	public @PositionType long getIndexStartPosition() throws PropertyNotPresentException {
+		
+		if(indexStartPosition < 0l)
+			throw new PropertyNotPresentException();
 		
 		return indexStartPosition;
 	}
@@ -195,6 +199,9 @@ public class IndexTableSegmentImpl
 			pid = 0x3f0d,
 			symbol = "IndexDuration")
 	public @LengthType long getIndexDuration() {
+
+		if(indexDuration < 0l)
+			throw new PropertyNotPresentException();
 		
 		return indexDuration;
 	}
@@ -210,11 +217,14 @@ public class IndexTableSegmentImpl
 			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x04 },
 			definedName = "Edit Unit Byte Count",
 			typeName = "UInt32",
-			optional = false,
+			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x3f05,
 			symbol = "EditUnitByteCount")
-	public @UInt32 int getEditUnitByteCount() {
+	public @UInt32 int getEditUnitByteCount() throws PropertyNotPresentException {
+		
+		if(editUnitByteCount == EDITUNITBYTECOUNT_DEFAULT)
+			throw new PropertyNotPresentException("Default Edit Unit Byte Count set");
 		
 		return editUnitByteCount;
 	}
@@ -254,10 +264,9 @@ public class IndexTableSegmentImpl
 		
 		this.indexSID = indexSID;
 	}
-	
-	//060e2b34.0101010e.04040501.00000000
-	@MediaProperty(uuid1 = 0x01040100, uuid2 = 0x0000, uuid3 = 0x0000,
-			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01 },
+
+	@MediaProperty(uuid1 = 0x04040501, uuid2 = 0x0000, uuid3 = 0x0000,
+			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e  },
 			definedName = "SingleIndexLocation",
 			aliases = { },
 			typeName = "Boolean",
@@ -266,17 +275,66 @@ public class IndexTableSegmentImpl
 			pid = 0x3f11,
 			symbol = "SingleIndexLocation")
 	public boolean getSingleIndexLocation() {
-		
+
 		return singleIndexLocation;
 	}
-	
+
 	@MediaPropertySetter("SingleIndexLocation")
 	public void setSingleIndexLocation(
 			@UInt32 boolean singleIndexLocation) 
 		throws IllegalArgumentException {
-		
-		
+
+
 		this.singleIndexLocation = singleIndexLocation;
+	}
+
+	//060e2b34.01040101.01040100.00000000
+		
+	@MediaProperty(uuid1 = 0x04040502, uuid2 = 0x0000, uuid3 = 0x0000,
+			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e},
+			definedName = "ForwardIndexDirection",
+			aliases = { },
+			typeName = "Boolean",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x3f13,
+			symbol = "ForwardIndexDirection")
+	public boolean getForwardIndexDirection() {
+
+		return forwardIndexDirection;
+	}
+
+	@MediaPropertySetter("ForwardIndexDirection")
+	public void setForwardIndexDirection(
+			@UInt32 boolean forwardIndexDirection) 
+		throws IllegalArgumentException {
+
+
+		this.forwardIndexDirection = forwardIndexDirection;
+	}
+
+	//060e2b34.027f0101.0d010201.01100100
+	//060e2b34.0101010e.04060206.00000000
+	@MediaProperty(uuid1 = 0x04060206, uuid2 = 0x0000, uuid3 = 0x0000,
+			uuid4 = { 0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0e},
+			definedName = "SingleEssenceLocation",
+			aliases = { },
+			typeName = "Boolean",
+			optional = true,
+			uniqueIdentifier = false,
+			pid = 0x3f12,
+			symbol = "SingleEssenceLocation")
+	public boolean getSingleEssenceLocation() {
+
+		return singleEssenceLocation;
+	}
+
+	@MediaPropertySetter("SingleEssenceLocation")
+	public void setSingleEssenceLocation(
+			boolean singleEssenceLocation) 
+		throws IllegalArgumentException {
+
+		this.singleEssenceLocation = singleEssenceLocation;
 	}
 	
 	
@@ -604,5 +662,4 @@ public class IndexTableSegmentImpl
 			throw new InternalError(cnse.getMessage());
 		}
 	}
-
 }

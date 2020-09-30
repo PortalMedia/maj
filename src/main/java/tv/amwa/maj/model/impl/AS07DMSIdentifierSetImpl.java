@@ -31,12 +31,12 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			definedName = "IdentifierValue",
 			aliases = {  },
 			typeName = "UTF16String",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8007,
 			symbol = "IdentifierValue")
 	public String getIdentifierValue() 
 		throws PropertyNotPresentException {
+		if(identifierValue == null) throw new PropertyNotPresentException();
 		return identifierValue;
 	}
 	
@@ -56,7 +56,7 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			definedName = "IdentifierRole",
 			aliases = {  },
 			typeName = "ASCIIString",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
 			pid = 0x8008,
 			symbol = "IdentifierRole")
@@ -82,14 +82,13 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			definedName = "IdentifierType",
 			aliases = {  },
 			typeName = "ASCIIString",
-			optional = true,
+			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8009,
 			symbol = "IdentifierType")
 	public String getIdentifierType() 
 		throws PropertyNotPresentException {
 
-		
+		if(identifierType == null) throw new PropertyNotPresentException();
 		return identifierType;
 	}
 	
@@ -116,7 +115,9 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 	public String getIdentifierComment() 
 		throws PropertyNotPresentException {
 
-		
+		if (identifierComment == null)
+			throw new PropertyNotPresentException("identifierComment is not present.");
+
 		return identifierComment;
 	}
 	

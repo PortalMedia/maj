@@ -478,4 +478,9 @@ public interface IndexTableSegment
 	public boolean getSingleIndexLocation();
 	public void setSingleIndexLocation(
 			boolean singleIndexLocation);
+	public boolean getForwardIndexDirection();
+	public void setForwardIndexDirection(boolean forwardIndexDirection);
+	public boolean getSingleEssenceLocation();
+	public void setSingleEssenceLocation(
+			boolean singleEssenceLocation);
 }
