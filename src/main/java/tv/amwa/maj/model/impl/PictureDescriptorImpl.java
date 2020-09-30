@@ -408,7 +408,7 @@ public class PictureDescriptorImpl
 			typeName = "Int32",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x320a,
+			pid = 0x320A,
 			symbol = "DisplayXOffset")
 	public int getDisplayXOffset() throws PropertyNotPresentException{
 		

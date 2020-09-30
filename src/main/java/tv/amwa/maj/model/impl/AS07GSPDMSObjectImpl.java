@@ -41,7 +41,7 @@ AS07GSPDMSObject{
 	private String textDataDescriptions = null;
 	private String note = null;
 	private int genericStreamId;
-	private List<AS07DMSIdentifierSetImpl> identifiers = null;
+	private List<AS07DMSIdentifierSetImpl> identifiers = Collections.synchronizedList(new ArrayList<AS07DMSIdentifierSetImpl>());;
 	
 	//060E2B34 0101010D 04060806 00000000
 	@MediaProperty(uuid1 = 0x04060806, uuid2 = 0x0000, uuid3 = 0x0000,
@@ -51,6 +51,7 @@ AS07GSPDMSObject{
 			typeName = "AUID",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x800c,
 			symbol = "TextBasedMetadataPayloadSchemeIdentifier")
 	public AUID getTextBasedMetadataPayloadSchemeIdentifier() 
 		throws PropertyNotPresentException {
@@ -76,6 +77,7 @@ AS07GSPDMSObject{
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x800d,
 			symbol = "Rfc5646TextLanguageCode")
 	public String getRfc5646TextLanguageCode() 
 		throws PropertyNotPresentException {
@@ -100,6 +102,7 @@ AS07GSPDMSObject{
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x800e,
 			symbol = "MimeMediaType")
 	public String getMimeMediaType() 
 		throws PropertyNotPresentException {
@@ -124,6 +127,7 @@ AS07GSPDMSObject{
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x800f,
 			symbol = "TextMimeMediaType")
 	public String getTextMimeMediaType() 
 		throws PropertyNotPresentException {
@@ -148,6 +152,7 @@ AS07GSPDMSObject{
 			typeName = "ASCIIString",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x8010,
 			symbol = "DataDescriptions")
 	public String getDataDescriptions() 
 		throws PropertyNotPresentException {
@@ -173,6 +178,7 @@ AS07GSPDMSObject{
 			typeName = "UTF16String",
 			optional = true,
 			uniqueIdentifier = false,
+			pid = 0x8011,
 			symbol = "TextDataDescriptions")
 	public String getTextDataDescriptions() 
 		throws PropertyNotPresentException {
@@ -242,6 +248,7 @@ AS07GSPDMSObject{
 			typeName = "AS07DMSIdentifierStrongReferenceVector",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x8014,
 			symbol = "Identifiers")
 	public List<AS07DMSIdentifierSetImpl> getIdentifiers() throws PropertyNotPresentException
 			{

@@ -28,6 +28,7 @@ public class TimedTextDescriptorImpl  extends AncillaryPacketsDescriptorImpl imp
 			typeName = "AUID",
 			optional = false,
 			uniqueIdentifier = false,
+					pid = 0x801a,
 			symbol = "ResourceId")
 	public AUID getResourceId() 
 		throws PropertyNotPresentException {

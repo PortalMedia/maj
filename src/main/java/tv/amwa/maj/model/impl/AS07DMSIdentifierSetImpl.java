@@ -33,6 +33,7 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
+					pid = 0x8007,
 			symbol = "IdentifierValue")
 	public String getIdentifierValue() 
 		throws PropertyNotPresentException {
@@ -83,6 +84,7 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			aliases = {  },
 			typeName = "ASCIIString",
 			optional = false,
+					pid = 0x8009,
 			uniqueIdentifier = false,
 			symbol = "IdentifierType")
 	public String getIdentifierType() 

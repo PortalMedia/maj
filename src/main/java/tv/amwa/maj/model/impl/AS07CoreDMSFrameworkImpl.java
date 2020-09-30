@@ -82,6 +82,7 @@ public class AS07CoreDMSFrameworkImpl
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
+					pid = 0x8001,
 			symbol = "ResponsibleOrganizationName")
 	public String getResponsibleOrganizationName() 
 		throws PropertyNotPresentException {
@@ -183,6 +184,7 @@ public class AS07CoreDMSFrameworkImpl
 			typeName = "AUID",
 			optional = false,
 			uniqueIdentifier = false,
+					pid = 0x8004,
 			symbol = "AudioTrackLayout")
 	public AUID getAudioTrackLayout() {
 

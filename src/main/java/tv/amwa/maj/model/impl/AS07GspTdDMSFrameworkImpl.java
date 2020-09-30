@@ -34,7 +34,7 @@ extends DescriptiveFrameworkImpl implements AS07GspTdDMSFramework{
 			symbol = "TextBasedObjects")
 	public AS07GSPDMSObject getTextBasedObject() 
 		throws PropertyNotPresentException {
-
+		
 		return textBasedObjects;
 	}
 	
@@ -55,6 +55,7 @@ extends DescriptiveFrameworkImpl implements AS07GspTdDMSFramework{
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
+			pid = 0x800a,
 			symbol = "PrimaryRFC5646LanguageCode")
 	public String getPrimaryRFC5646LanguageCode() 
 		throws PropertyNotPresentException {
