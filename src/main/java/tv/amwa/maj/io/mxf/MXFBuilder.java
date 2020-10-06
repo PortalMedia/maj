@@ -419,9 +419,6 @@ public class MXFBuilder {
 
 		int preserveLimit = buffer.limit();
 
-		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d0e0101.07010300")) {
-			System.out.println("LAKJLJALKJLKJLA");
-		}
 		ClassDefinition localSetClass = ClassDefinitionImpl.forAUID(key);
 		//TODO: localSetClass.set
 		if (localSetClass == null) {
@@ -499,17 +496,6 @@ public class MXFBuilder {
 				continue;
 			}
 
-//			System.out.println(property.getName());
-
-//			if (property.getName().equals("Delta Entry Array"))
-//				System.out.println("Found it!");
-
-//			if (localSetValue instanceof MetaDefinition) {
-//				String defName = ((MetaDefinition) localSetValue).getName();
-//				if (defName != null)
-//					System.out.println(defName + "." + property.getName());
-//			}
-
 			if (propertyIgnoreList.contains(property.getName())) {
 				System.err.println("Ignoring property " + property.getMemberOf().getName() + "." + property.getName() + ".");
 				buffer.limit(preserveLimit);
@@ -517,9 +503,10 @@ public class MXFBuilder {
 				continue;
 			}
 
-			if(property.getName().equals("Identifiers")) {
+			if(property.getName().equals("Index Entry Array")) {
 				int i = 0;
 			}
+			
 			TypeDefinition propertyType = property.getTypeDefinition();
 			buffer.limit(buffer.position() + length);
 

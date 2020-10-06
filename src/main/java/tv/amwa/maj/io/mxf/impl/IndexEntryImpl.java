@@ -51,7 +51,7 @@ public class IndexEntryImpl
 	private @Int8 byte temporalOffset = TEMPORALOFFSET_DEFAULT;
 	private @Int8 byte keyFrameOffset = KEYFRAMEOFFSET_DEFAULT;
 	private @EditUnitFlag byte flags = FLAGS_DEFAULT;
-	private @UInt64 long streamOffset;
+	private long streamOffset;
 	private @UInt32Array int[] sliceOffset = null;
 	private Rational[] posTable = null;
 
@@ -139,8 +139,6 @@ public class IndexEntryImpl
 			@UInt64 long streamOffset)
 		throws IllegalArgumentException {
 
-		if (streamOffset < 0)
-			throw new IllegalArgumentException("Cannot set the stream offset to a negative value.");
 
 		this.streamOffset = streamOffset;
 	}

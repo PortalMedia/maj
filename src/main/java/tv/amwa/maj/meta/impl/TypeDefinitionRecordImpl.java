@@ -140,6 +140,7 @@ public final class TypeDefinitionRecordImpl
 		registerInterfaceMapping(tv.amwa.maj.record.DateStruct.class, tv.amwa.maj.record.impl.DateStructImpl.class);
 		registerInterfaceMapping(tv.amwa.maj.record.TimeStruct.class, tv.amwa.maj.record.impl.TimeStructImpl.class);
 		registerInterfaceMapping(tv.amwa.maj.record.TimeStamp.class, tv.amwa.maj.record.impl.TimeStampImpl.class);
+		registerInterfaceMapping(tv.amwa.maj.io.mxf.IndexEntry.class, tv.amwa.maj.io.mxf.impl.IndexEntryImpl.class);
 	}
 	
 	public final static void registerInterfaceMapping(

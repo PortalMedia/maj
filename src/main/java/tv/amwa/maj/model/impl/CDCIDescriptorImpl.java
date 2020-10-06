@@ -206,10 +206,10 @@ public class CDCIDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3304,
 			symbol = "BlackRefLevel")
-	public int getBlackRefLevel() {
+	public int getBlackRefLevel() throws PropertyNotPresentException{
 
 		if (blackRefLevel == null) 
-			return BLACKREFLEVEL_DEFAULT;
+			throw new PropertyNotPresentException();
 		else
 			return blackRefLevel;
 	}
@@ -253,10 +253,10 @@ public class CDCIDescriptorImpl
 			uniqueIdentifier = false,
 			pid = 0x3306,
 			symbol = "ColorRange")
-	public int getColorRange() {
+	public int getColorRange() throws PropertyNotPresentException{
 
 		if (colorRange == null)
-			return maximumLevel;
+			throw new PropertyNotPresentException();
 		else
 			return colorRange;
 	}

@@ -1057,6 +1057,7 @@ public final class TypeDefinitionVariableArrayImpl
 			}
 			
 			for ( int u = 0 ; u < setCount ; u++ ) {
+				System.out.println(u);
 				int preservedLimit = buffer.limit();
 				try {
 					buffer.limit(buffer.position() + elementSize);

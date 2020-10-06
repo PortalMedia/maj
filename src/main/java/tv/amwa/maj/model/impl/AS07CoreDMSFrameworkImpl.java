@@ -37,7 +37,7 @@ public class AS07CoreDMSFrameworkImpl
 	private String captions = null;
 	private AUID audioTrackLayout = null;
 	private String intendedAFD = null;
-	private List<AS07DMSIdentifierSetImpl> identifiers = Collections.synchronizedList(new ArrayList<AS07DMSIdentifierSetImpl>());
+	private List<AS07DMSIdentifierSetImpl> identifiers = null;
 	private List<AS07CoreDMSDeviceObjectsImpl> devices = Collections.synchronizedList(new ArrayList<AS07CoreDMSDeviceObjectsImpl>());
 	private String audioTrackLayoutComment = null;
 	private String audioTrackSecondaryLanguage = null;
@@ -382,7 +382,6 @@ public class AS07CoreDMSFrameworkImpl
 			typeName = "AS07DMSIdentifierStrongReferenceVector",
 			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8014,
 			symbol = "Identifiers")
 	public List<AS07DMSIdentifierSetImpl> getIdentifiers()
 			{

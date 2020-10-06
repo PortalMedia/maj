@@ -107,14 +107,14 @@ public class IndexPrimerPackImpl
 		indexTags.put((short) 0x3f09, deltaEntryArrayKey);
 		indexTags.put((short) 0x3f0a, indexEntryArrayKey);
 		indexTags.put((short) 0x3f0f, extStartOffsetKey);
-		indexTags.put((short) 0x3f10, vbeByteCountKey);
+		//indexTags.put((short) 0x3f10, vbeByteCountKey);
 		indexTags.put((short) 0x3f11, singleIndexLocation);
 		indexTags.put((short) 0x3f13, forwardIndexDirection);
 		indexTags.put((short) 0x3f12, singleEssenceLocation);
 
 		for (Entry<Short, AUID> entry : indexTags.entrySet()) {
 			reverseIndexTags.put(entry.getValue(), entry.getKey());
-			localTagBatch.add(new LocalTagEntryImpl(entry.getKey(), entry.getValue()));
+			//localTagBatch.add(new LocalTagEntryImpl(entry.getKey(), entry.getValue()));
 		}
 	}
 

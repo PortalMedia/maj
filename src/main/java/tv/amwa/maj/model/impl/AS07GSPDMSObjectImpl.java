@@ -51,7 +51,6 @@ AS07GSPDMSObject{
 			typeName = "AUID",
 			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800c,
 			symbol = "TextBasedMetadataPayloadSchemeIdentifier")
 	public AUID getTextBasedMetadataPayloadSchemeIdentifier() 
 		throws PropertyNotPresentException {
@@ -127,7 +126,6 @@ AS07GSPDMSObject{
 			typeName = "UTF16String",
 			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x800f,
 			symbol = "TextMimeMediaType")
 	public String getTextMimeMediaType() 
 		throws PropertyNotPresentException {
@@ -202,7 +200,6 @@ AS07GSPDMSObject{
 			typeName = "ASCIIString",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8012,
 			symbol = "Note")
 	public String getNote() 
 		throws PropertyNotPresentException {

@@ -49,7 +49,6 @@ implements
 			typeName = "UInt32",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8016,
 			symbol = "DateTimeChannelID")
 	public int getDateTimeChannelID() throws PropertyNotPresentException {
 		if(dateTimeChannelID <= 0)
@@ -93,7 +92,6 @@ implements
 			typeName = "UInt32",
 			optional = true,
 			uniqueIdentifier = false,
-			pid = 0x8016,
 			symbol = "DateTimeEssenceTrackID")
 	public int getDateTimeEssenceTrackID() {
 		if(dateTimeEssenceTrackID <= 0)

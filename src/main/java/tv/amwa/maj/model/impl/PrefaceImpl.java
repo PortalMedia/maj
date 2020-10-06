@@ -151,7 +151,7 @@ public class PrefaceImpl
 	/** <p></p> */
 	private static final long serialVersionUID = 3343754479545511683L;
 	
-	private ByteOrder byteOrder;
+	private ByteOrder byteOrder = null;
 	private TimeStamp fileLastModified;
 	private VersionType formatVersion;
 	private Integer objectModelVersion = null; // TODO not sure what this is, but is now persistent
@@ -165,7 +165,7 @@ public class PrefaceImpl
 	private ContentStorage contentStorageObject;
 	private List<Identification> identificationList =
 		Collections.synchronizedList(new Vector<Identification>());
-	private Dictionary dictionaries;
+	private Dictionary dictionaries = null;
 	private WeakReference<Package> primaryPackage;
 	
 	/**
@@ -175,10 +175,10 @@ public class PrefaceImpl
 	public PrefaceImpl() {
 		
 		// Java uses big endian by default
-		this.byteOrder = ByteOrder.Big; // TODO make sure a little endian file sets this
+		//this.byteOrder = ByteOrder.Big; // TODO make sure a little endian file sets this
 		
 		this.fileLastModified = new TimeStampImpl();
-		this.dictionaries = new DictionaryImpl();
+		//this.dictionaries = new DictionaryImpl();
 		
 		this.formatVersion = new VersionTypeImpl((byte) 1, (byte) 0);
 
@@ -821,12 +821,13 @@ public class PrefaceImpl
 			uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
 			definedName = "ByteOrder",
 			typeName = "Int16", 
-			optional = false,
+			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x3B01,
 			symbol = "ByteOrder")
-	public ByteOrder getByteOrder() { 
-		
+	public ByteOrder getByteOrder() throws PropertyNotPresentException { 
+
+		if(byteOrder == null) throw new PropertyNotPresentException();
 		return byteOrder; 
 	}
 	
@@ -855,11 +856,13 @@ public class PrefaceImpl
 			definedName = "Dictionaries",
 			aliases = { "Dictionary", "HeaderDictionary" },
 			typeName = "DictionaryStrongReference",
-			optional = false,
+			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x3B04,
 			symbol = "Dictionaries")
-	public Dictionary getDictionaries() { 
+	public Dictionary getDictionaries() throws PropertyNotPresentException { 
+		
+		if(dictionaries == null) throw new PropertyNotPresentException();
 		
 		return dictionaries;
 	}

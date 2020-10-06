@@ -59,7 +59,6 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			typeName = "ASCIIString",
 			optional = false,
 			uniqueIdentifier = false,
-			pid = 0x8008,
 			symbol = "IdentifierRole")
 	public String getIdentifierRole() 
 		throws PropertyNotPresentException {
