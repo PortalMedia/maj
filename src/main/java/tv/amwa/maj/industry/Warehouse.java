@@ -542,7 +542,9 @@ public final class Warehouse {
 			classIdBytes[13] = 0x06;
 			identification = new AUIDImpl(classIdBytes);
 		}
-		
+		if(identification.toString().contains("0d010401.02020000")) {
+			System.out.println("Found it");
+		}
 		ClassDefinition def = idToClass.get(identification);
 		return def;
 	}

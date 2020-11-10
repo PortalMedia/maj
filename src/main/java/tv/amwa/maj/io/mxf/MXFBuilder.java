@@ -60,6 +60,8 @@ import tv.amwa.maj.meta.impl.TypeDefinitionVariableArrayImpl;
 import tv.amwa.maj.model.Preface;
 import tv.amwa.maj.record.AUID;
 import tv.amwa.maj.record.impl.AUIDImpl;
+import tv.amwa.maj.record.impl.J2KComponentSizing;
+import tv.amwa.maj.record.impl.J2KComponentSizingImpl;
 
 /**
  * <p>Collection of static methods that provide the ability to build {@linkplain MXFFile MXF files}
@@ -111,6 +113,7 @@ public class MXFBuilder {
 
 		TypeDefinitionRecordImpl.registerInterfaceMapping(DeltaEntry.class, DeltaEntryImpl.class);
 		TypeDefinitionRecordImpl.registerInterfaceMapping(IndexEntry.class, IndexEntryImpl.class);
+		TypeDefinitionRecordImpl.registerInterfaceMapping(J2KComponentSizing.class, J2KComponentSizingImpl.class);
 
 		mxfRegistration = true;
 	}
@@ -208,7 +211,7 @@ public class MXFBuilder {
 		FixedLengthPack fixedLengthValue = null;
 		boolean error = false;
 		try{
-			System.out.println(key.toString());
+			//System.out.println(key.toString());
 			if(key.toString().equals("urn:smpte:ul:060e2b34.02050101.0d010201.01110100")) {
 				int i = 0;
 			}
@@ -501,10 +504,6 @@ public class MXFBuilder {
 				buffer.limit(preserveLimit);
 				buffer.position(buffer.position() + length);
 				continue;
-			}
-
-			if(property.getName().equals("Index Entry Array")) {
-				int i = 0;
 			}
 			
 			TypeDefinition propertyType = property.getTypeDefinition();

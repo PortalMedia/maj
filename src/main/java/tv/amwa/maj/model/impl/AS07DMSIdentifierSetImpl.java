@@ -57,6 +57,7 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			definedName = "IdentifierRole",
 			aliases = {  },
 			typeName = "ASCIIString",
+					pid = 0x8008,
 			optional = false,
 			uniqueIdentifier = false,
 			symbol = "IdentifierRole")
@@ -89,7 +90,6 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 	public String getIdentifierType() 
 		throws PropertyNotPresentException {
 
-		if(identifierType == null) throw new PropertyNotPresentException();
 		return identifierType;
 	}
 	
@@ -112,7 +112,7 @@ InterchangeObjectImpl implements AS07DMSIdentifierSet{
 			optional = true,
 			uniqueIdentifier = false,
 			pid = 0x8010,
-			symbol = "IdentifierType")
+			symbol = "IdentifierComment")
 	public String getIdentifierComment() 
 		throws PropertyNotPresentException {
 

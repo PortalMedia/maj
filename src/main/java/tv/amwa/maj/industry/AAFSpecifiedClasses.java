@@ -90,102 +90,7 @@ import tv.amwa.maj.meta.impl.TypeDefinitionVariableArrayImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionWeakObjectReferenceImpl;
 import tv.amwa.maj.model.AS07TimecodeLabelSubdescriptor;
 import tv.amwa.maj.model.InterchangeObject;
-import tv.amwa.maj.model.impl.AAFFileDescriptorImpl;
-import tv.amwa.maj.model.impl.AES3PCMDescriptorImpl;
-import tv.amwa.maj.model.impl.AIFCDescriptorImpl;
-import tv.amwa.maj.model.impl.AVCSubDescriptorImpl;
-import tv.amwa.maj.model.impl.AncillaryPacketsDescriptorImpl;
-import tv.amwa.maj.model.impl.ApplicationObjectImpl;
-import tv.amwa.maj.model.impl.ApplicationPluginObjectImpl;
-import tv.amwa.maj.model.impl.ApplicationReferencedObjectImpl;
-import tv.amwa.maj.model.impl.AS07CoreDMSFrameworkImpl;
-import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
-import tv.amwa.maj.model.impl.AS07DateTimeDescriptorImpl;
-import tv.amwa.maj.model.impl.AS07GSPDMSObjectImpl;
-import tv.amwa.maj.model.impl.AS07GspBdDMSFrameworkImpl;
-import tv.amwa.maj.model.impl.AS07GspTdDMSFrameworkImpl;
-import tv.amwa.maj.model.impl.AuxiliaryDescriptorImpl;
-import tv.amwa.maj.model.impl.BWFImportDescriptorImpl;
-import tv.amwa.maj.model.impl.CDCIDescriptorImpl;
-import tv.amwa.maj.model.impl.CodecDefinitionImpl;
-import tv.amwa.maj.model.impl.CommentMarkerImpl;
-import tv.amwa.maj.model.impl.ComponentImpl;
-import tv.amwa.maj.model.impl.CompositionPackageImpl;
-import tv.amwa.maj.model.impl.ConstantValueImpl;
-import tv.amwa.maj.model.impl.ContainerDefinitionImpl;
-import tv.amwa.maj.model.impl.ContentStorageImpl;
-import tv.amwa.maj.model.impl.ControlPointImpl;
-import tv.amwa.maj.model.impl.DataDefinitionImpl;
-import tv.amwa.maj.model.impl.DataEssenceDescriptorImpl;
-import tv.amwa.maj.model.impl.DefinitionObjectImpl;
-import tv.amwa.maj.model.impl.DescriptiveClipImpl;
-import tv.amwa.maj.model.impl.DescriptiveFrameworkImpl;
-import tv.amwa.maj.model.impl.DescriptiveMarkerImpl;
-import tv.amwa.maj.model.impl.DescriptiveObjectImpl;
-import tv.amwa.maj.model.impl.DictionaryImpl;
-import tv.amwa.maj.model.impl.EdgeCodeSegmentImpl;
-import tv.amwa.maj.model.impl.EssenceDataImpl;
-import tv.amwa.maj.model.impl.EssenceDescriptorImpl;
-import tv.amwa.maj.model.impl.EssenceGroupImpl;
-import tv.amwa.maj.model.impl.EventImpl;
-import tv.amwa.maj.model.impl.EventTrackImpl;
-import tv.amwa.maj.model.impl.FillerImpl;
-import tv.amwa.maj.model.impl.FilmDescriptorImpl;
-import tv.amwa.maj.model.impl.GPITriggerImpl;
-import tv.amwa.maj.model.impl.HTMLClipImpl;
-import tv.amwa.maj.model.impl.HTMLDescriptorImpl;
-import tv.amwa.maj.model.impl.IdentificationImpl;
-import tv.amwa.maj.model.impl.ImportDescriptorImpl;
-import tv.amwa.maj.model.impl.InterchangeObjectImpl;
-import tv.amwa.maj.model.impl.InterpolationDefinitionImpl;
-import tv.amwa.maj.model.impl.KLVDataDefinitionImpl;
-import tv.amwa.maj.model.impl.KLVDataImpl;
-import tv.amwa.maj.model.impl.LocatorImpl;
-import tv.amwa.maj.model.impl.MPEGVideoDescriptorImpl;
-import tv.amwa.maj.model.impl.MaterialPackageImpl;
-import tv.amwa.maj.model.impl.MultipleDescriptorImpl;
-import tv.amwa.maj.model.impl.NestedScopeImpl;
-import tv.amwa.maj.model.impl.NetworkLocatorImpl;
-import tv.amwa.maj.model.impl.OperationDefinitionImpl;
-import tv.amwa.maj.model.impl.OperationGroupImpl;
-import tv.amwa.maj.model.impl.PackageImpl;
-import tv.amwa.maj.model.impl.PackageMarkerImpl;
-import tv.amwa.maj.model.impl.ParameterDefinitionImpl;
-import tv.amwa.maj.model.impl.ParameterImpl;
-import tv.amwa.maj.model.impl.PhysicalDescriptorImpl;
-import tv.amwa.maj.model.impl.PictureDescriptorImpl;
-import tv.amwa.maj.model.impl.PluginDefinitionImpl;
-import tv.amwa.maj.model.impl.PrefaceImpl;
-import tv.amwa.maj.model.impl.PulldownImpl;
-import tv.amwa.maj.model.impl.RGBADescriptorImpl;
-import tv.amwa.maj.model.impl.RIFFChunkImpl;
-import tv.amwa.maj.model.impl.RecordingDescriptorImpl;
-import tv.amwa.maj.model.impl.ScopeReferenceImpl;
-import tv.amwa.maj.model.impl.SegmentImpl;
-import tv.amwa.maj.model.impl.SelectorImpl;
-import tv.amwa.maj.model.impl.SequenceImpl;
-import tv.amwa.maj.model.impl.SoundDescriptorImpl;
-import tv.amwa.maj.model.impl.SourceClipImpl;
-import tv.amwa.maj.model.impl.SourcePackageImpl;
-import tv.amwa.maj.model.impl.SourceReferenceSegmentImpl;
-import tv.amwa.maj.model.impl.StaticTrackImpl;
-import tv.amwa.maj.model.impl.SubDescriptorImpl;
-import tv.amwa.maj.model.impl.TIFFDescriptorImpl;
-import tv.amwa.maj.model.impl.TaggedValueDefinitionImpl;
-import tv.amwa.maj.model.impl.TaggedValueImpl;
-import tv.amwa.maj.model.impl.TapeDescriptorImpl;
-import tv.amwa.maj.model.impl.TextClipImpl;
-import tv.amwa.maj.model.impl.TextLocatorImpl;
-import tv.amwa.maj.model.impl.TimecodeSegmentImpl;
-import tv.amwa.maj.model.impl.TimecodeStream12MImpl;
-import tv.amwa.maj.model.impl.TimecodeStreamImpl;
-import tv.amwa.maj.model.impl.TimedTextDescriptorImpl;
-import tv.amwa.maj.model.impl.TimelineTrackImpl;
-import tv.amwa.maj.model.impl.TrackImpl;
-import tv.amwa.maj.model.impl.TransitionImpl;
-import tv.amwa.maj.model.impl.VaryingValueImpl;
-import tv.amwa.maj.model.impl.WAVEDescriptorImpl;
-import tv.amwa.maj.model.impl.WAVEPCMDescriptorImpl;
+import tv.amwa.maj.model.impl.*;
 
 /**
  * <p>Lists of classes implementing thoses specified for the Advanced Authoring Format (AAF). These classes 
@@ -295,6 +200,13 @@ public interface AAFSpecifiedClasses {
 		AS07GspBdDMSFrameworkImpl.class,
 		AS07GspTdDMSFrameworkImpl.class,
 		AS07DateTimeDescriptorImpl.class,
+		AudioChannelLabelSubDescriptorImpl.class,
+		GroupOfSoundfieldGroupsLabelSubDescriptorImpl.class,
+		SoundfieldGroupLabelSubDescriptorImpl.class,
+		MCALabelSubDescriptorImpl.class,
+		JPEG2000SubDescriptorImpl.class,
+		CryptographicContextImpl.class,
+		CryptographicFrameworkImpl.class,
 		AncillaryPacketsDescriptorImpl.class,
 		AS07GSPDMSObjectImpl.class,
 		TimedTextDescriptorImpl.class,
@@ -306,7 +218,8 @@ public interface AAFSpecifiedClasses {
 		PackageMarkerImpl.class,
 		ApplicationPluginObjectImpl.class,
 		ApplicationReferencedObjectImpl.class,
-		AVCSubDescriptorImpl.class
+		AVCSubDescriptorImpl.class,
+		JPEG2000SubDescriptorImpl.class
 	};
 	
 	/**

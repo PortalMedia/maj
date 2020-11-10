@@ -106,6 +106,21 @@ public interface TypeDefinitions
 				UInt64
 			},
 			IndexEntry.class);
+	
+	public final static TypeDefinitionRecord J2KComponentSizing = new TypeDefinitionRecordImpl(
+			new AUIDImpl(),
+			"J2KComponentSizing",
+			new String[] {
+				"ssizi",
+				"xrsizi",
+				"yrsizi"// Missing out SliceOffset and PosTable as not record supported types.
+			},
+			new TypeDefinition[] {
+				UInt8,
+				UInt8,
+				UInt8
+			},
+			tv.amwa.maj.record.impl.J2KComponentSizing.class);
 
 	/**
 	 * <p>Defines the type for a value that represents an array of {@linkplain #IndexEntry entries}
@@ -119,6 +134,11 @@ public interface TypeDefinitions
 			new AUIDImpl(),
 			"IndexEntryArray",
 			IndexEntry);
+	
+	public final static TypeDefinitionVariableArray J2KComponentSizingArray = new TypeDefinitionVariableArrayImpl(
+			new AUIDImpl(),
+			"J2KComponentSizingArray",
+			J2KComponentSizing);
 
 	/**
 	 * <p>Defines the type for a value that represents an entry in a

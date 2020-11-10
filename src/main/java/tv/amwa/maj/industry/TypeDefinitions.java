@@ -143,6 +143,7 @@ import tv.amwa.maj.model.impl.ComponentImpl;
 import tv.amwa.maj.model.impl.ContainerDefinitionImpl;
 import tv.amwa.maj.model.impl.ContentStorageImpl;
 import tv.amwa.maj.model.impl.ControlPointImpl;
+import tv.amwa.maj.model.impl.CryptographicContextImpl;
 import tv.amwa.maj.model.impl.DataDefinitionImpl;
 import tv.amwa.maj.model.impl.DescriptiveFrameworkImpl;
 import tv.amwa.maj.model.impl.DescriptiveObjectImpl;
@@ -1771,11 +1772,20 @@ public interface TypeDefinitions {
 	
 	public static final TypeDefinitionStrongObjectReference AS07DMSIdentifierStrongReference =
 		new TypeDefinitionStrongObjectReferenceImpl(
-				new AUIDImpl(0x05088209, (short) 0x0000, (short) 0x0000,
+				new AUIDImpl(0x050244209, (short) 0x0000, (short) 0x0000,
 						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
 				"AS07DMSIdentifierStrongReference",
 				Warehouse.lookForClass(AS07DMSIdentifierSetImpl.class));
 
+
+	//060e2b34.027f0101.0d010401.02020000
+	public static final TypeDefinitionStrongObjectReference CryptographicContextStrongReference =
+		new TypeDefinitionStrongObjectReferenceImpl(
+				new AUIDImpl(0x0d010401, (short) 0x0202, (short) 0x0000,
+						new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x02, 0x7f, 0x01, 0x01}),
+				"CryptographicContextStrongReference",
+				Warehouse.lookForClass(CryptographicContextImpl.class));
+	
 	/**
 	 * <p>Defines the type for a value that represents a strong reference to a
 	 * {@linkplain tv.amwa.maj.model.DescriptiveObject descriptive object}.</p>

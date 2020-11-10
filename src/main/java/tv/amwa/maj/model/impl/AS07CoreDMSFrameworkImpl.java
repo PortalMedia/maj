@@ -2,9 +2,7 @@ package tv.amwa.maj.model.impl;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import tv.amwa.maj.exception.ObjectAlreadyAttachedException;
 import tv.amwa.maj.exception.PropertyNotPresentException;
@@ -145,7 +143,7 @@ public class AS07CoreDMSFrameworkImpl
 	
 
 	@MediaPropertySetter("PictureFormat")
-	public void getPictureFormat(
+	public void setPictureFormat(
 			String pictureFormat) {
 
 		this.pictureFormat = pictureFormat;
@@ -170,7 +168,7 @@ public class AS07CoreDMSFrameworkImpl
 	
 
 	@MediaPropertySetter("Captions")
-	public void getCaptions(
+	public void setCaptions(
 			String captions) {
 
 		this.captions = captions;
@@ -343,7 +341,7 @@ public class AS07CoreDMSFrameworkImpl
 	
 
 	@MediaPropertySetter("IntendedAFD")
-	public void getIntendedAFD(
+	public void setIntendedAFD(
 			String intendedAFD) {
 
 		this.intendedAFD = intendedAFD;

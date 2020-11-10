@@ -84,6 +84,7 @@ import java.nio.LongBuffer;
 import java.nio.ShortBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import org.w3c.dom.Element;
@@ -901,7 +902,6 @@ public final class TypeDefinitionAsciiImpl
 		if (firstNull != -1)
 			checkForNulls = checkForNulls.substring(0, firstNull);
 
-		System.out.println(checkForNulls);
 		return createValue(checkForNulls);
 	}
 	
@@ -913,7 +913,7 @@ public final class TypeDefinitionAsciiImpl
 		
 		super.lengthAsBytes(value);
 		
-		return (2 * (((String) value.getValue())).length() + 2);
+		return ((String) value.getValue()).length();
 	}
 	
 	@Override
@@ -926,16 +926,16 @@ public final class TypeDefinitionAsciiImpl
 		
 		super.writeAsBytes(value, buffer);
 		
+		
 		String toWrite = (String) value.getValue();
-		if (buffer.remaining() < (2 * toWrite.length() + 2))
+		if (buffer.remaining() < (toWrite.length()))
 			throw new InsufficientSpaceException("Not enough remaining space in the given buffer to write a string value of length " + 
 					toWrite.length() + ".");
-		
-		char[] characters = toWrite.toCharArray();
-		for ( char c : characters)
-			buffer.putChar(c);
-		buffer.putChar('\u0000');
-		
+	
+		byte[] bytes = toWrite.getBytes(StandardCharsets.US_ASCII);
+		//bytes = toWrite.getBytes("US-ASCII");
+
+		buffer.put(bytes);
 		return null;
 	}
 	

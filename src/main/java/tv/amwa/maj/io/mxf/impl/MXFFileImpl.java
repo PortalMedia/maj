@@ -2114,7 +2114,7 @@ public class MXFFileImpl
 //			System.out.println();
 			
 			key = material.readKey();
-			System.out.println(key.toString());
+			//System.out.println(key.toString());
 			
 			if (MXFBuilder.isKLVFill(key)) {
 				length = material.readBER();

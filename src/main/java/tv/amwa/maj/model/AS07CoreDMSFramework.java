@@ -30,11 +30,11 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 
 	String getPictureFormat() throws PropertyNotPresentException;
 
-	void getPictureFormat(String pictureFormat);
+	void setPictureFormat(String pictureFormat);
 
 	String getCaptions() throws PropertyNotPresentException;
 
-	void getCaptions(String captions);
+	void setCaptions(String captions);
 
 	AUID getAudioTrackLayout() throws PropertyNotPresentException;
 
@@ -62,7 +62,7 @@ public interface AS07CoreDMSFramework extends DescriptiveFramework {
 
 	String getIntendedAFD() throws PropertyNotPresentException;
 
-	void getIntendedAFD(String intendedAFD);
+	void setIntendedAFD(String intendedAFD);
 
 	String getNatureOfOrganization() throws PropertyNotPresentException;
 
