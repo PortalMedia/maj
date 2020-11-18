@@ -53,7 +53,10 @@ public class EssenceElementImpl
 			UL key) {
 
 		if (key == null) return false;
-
+		System.out.println(key.toString().toUpperCase());
+		if(key.toString().toUpperCase().contains("060E2B34.01020101.0D010301.15010801")) {
+			System.out.println("Found essence");
+		}
 		byte[] keyBytes = key.getUniversalLabel();
 		if (keyBytes[0] != 0x06) return false;
 		if (keyBytes[1] != 0x0e) return false;

@@ -62,6 +62,7 @@ import tv.amwa.maj.record.AUID;
 import tv.amwa.maj.record.impl.AUIDImpl;
 import tv.amwa.maj.record.impl.J2KComponentSizing;
 import tv.amwa.maj.record.impl.J2KComponentSizingImpl;
+import tv.amwa.maj.util.KeyErrorLogger;
 
 /**
  * <p>Collection of static methods that provide the ability to build {@linkplain MXFFile MXF files}
@@ -427,6 +428,7 @@ public class MXFBuilder {
 		if (localSetClass == null) {
 			System.err.println("Unable to find a local implementation of class with id " + key.toString() +
 					". Skipping " + buffer.remaining() + " bytes at " + buffer.position());
+			KeyErrorLogger.LogMissingClassKey(key.toString());
 			buffer.position(preserveLimit);
 			return null;
 		}
@@ -487,12 +489,17 @@ public class MXFBuilder {
 					property = localSetClass.lookupPropertyDefinition(propertyKey);
 			}
 			catch (BadParameterException bpe) {
-				if (propertyKey != null)
+				if (propertyKey != null) {
 					System.err.println("Unable to resolve tag " + Integer.toHexString(tag) + " and key " + propertyKey.toString() +
 							" for class " + localSetClass.getName() + ". Skipping.");
-				else
+					KeyErrorLogger.LogMissingProperty(propertyKey.toString());
+				}
+				else {
 					System.err.println("Unable to resolve tag " + Integer.toHexString(tag) +
 							" for class " + localSetClass.getName() + ". Skipping.");
+					KeyErrorLogger.LogMissingProperty("Unable to resolve tag " + Integer.toHexString(tag) +
+							" for class " + localSetClass.getName());
+				}
 
 				buffer.limit(preserveLimit);
 				buffer.position(buffer.position() + length);
