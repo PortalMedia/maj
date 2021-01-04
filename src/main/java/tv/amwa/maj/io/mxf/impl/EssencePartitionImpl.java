@@ -56,7 +56,7 @@ public abstract class EssencePartitionImpl
 		MXFFileImpl file = getMXFFile();
 		PartitionPack partitionPack = getPartitionPack();
 
-		if (partitionPack.getBodySID() == 0) return null;
+		//if (partitionPack.getBodySID() == 0) return null;
 
 		long elementPosition = 0;
 		Partition nextPartition = file.getNextPartition(this);
@@ -66,7 +66,7 @@ public abstract class EssencePartitionImpl
 		long length = 0;
 		ByteBuffer data = null;
 
-		long startOfBody = getEndOfParitionPack() + partitionPack.getBodyOffset();
+		long startOfBody = getEndOfParitionPack();
 		elementPosition = startOfBody + elementOffset;
 		file.seek(elementPosition);
 

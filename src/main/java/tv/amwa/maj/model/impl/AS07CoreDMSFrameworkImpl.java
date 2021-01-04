@@ -382,7 +382,8 @@ public class AS07CoreDMSFrameworkImpl
 			uniqueIdentifier = false,
 			symbol = "Identifiers")
 	public List<AS07DMSIdentifierSetImpl> getIdentifiers()
-			{
+	{
+		if(identifiers==null) return new ArrayList<AS07DMSIdentifierSetImpl>();
 		return StrongReferenceVector.getOptionalList(identifiers);
 	}
 	@MediaPropertySetter("Identifiers")
