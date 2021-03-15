@@ -430,7 +430,8 @@ public class MXFBuilder {
 					". Skipping " + buffer.remaining() + " bytes at " + buffer.position());
 			KeyErrorLogger.LogMissingClassKey(key.toString());
 			buffer.position(preserveLimit);
-			return null;
+			throw new Exception("Unable to find a local implementation of class with id " + key.toString());
+			//return null;
 		}
 
 		// TODO add meta dictionary support
@@ -493,17 +494,21 @@ public class MXFBuilder {
 					System.err.println("Unable to resolve tag " + Integer.toHexString(tag) + " and key " + propertyKey.toString() +
 							" for class " + localSetClass.getName() + ". Skipping.");
 					KeyErrorLogger.LogMissingProperty(propertyKey.toString());
+					throw new Exception("Unable to resolve tag " + Integer.toHexString(tag) + " and key " + propertyKey.toString() +
+							" for class " + localSetClass.getName() + ". Skipping.");
 				}
 				else {
 					System.err.println("Unable to resolve tag " + Integer.toHexString(tag) +
 							" for class " + localSetClass.getName() + ". Skipping.");
 					KeyErrorLogger.LogMissingProperty("Unable to resolve tag " + Integer.toHexString(tag) +
 							" for class " + localSetClass.getName());
+					throw new Exception("Unable to resolve tag " + Integer.toHexString(tag) +
+							" for class " + localSetClass.getName() + ". Skipping.");
 				}
 
-				buffer.limit(preserveLimit);
-				buffer.position(buffer.position() + length);
-				continue;
+				//buffer.limit(preserveLimit);
+				//buffer.position(buffer.position() + length);
+				//continue;
 			}
 
 			if (propertyIgnoreList.contains(property.getName())) {
