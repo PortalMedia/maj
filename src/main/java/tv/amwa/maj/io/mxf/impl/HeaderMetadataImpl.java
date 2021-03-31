@@ -145,7 +145,7 @@ public class HeaderMetadataImpl
 	}
 
 	final Preface readPreface(
-			ByteBuffer buffer) {
+			ByteBuffer buffer) throws Exception {
 
 		Preface preface = null;
 		long lastFillSize = -1;
@@ -182,6 +182,7 @@ public class HeaderMetadataImpl
 		}
 		catch (Exception e) {
 			System.err.println(e.getClass().getName() + " thrown when reading a preface: " + e.getMessage());
+			throw(e);
 		}
 
 		setEndPadding(lastFillSize);
