@@ -142,6 +142,9 @@ public final class TypeDefinitionRecordImpl
 		registerInterfaceMapping(tv.amwa.maj.record.TimeStamp.class, tv.amwa.maj.record.impl.TimeStampImpl.class);
 		registerInterfaceMapping(tv.amwa.maj.io.mxf.IndexEntry.class, tv.amwa.maj.io.mxf.impl.IndexEntryImpl.class);
 		registerInterfaceMapping(tv.amwa.maj.record.impl.J2KComponentSizing.class, tv.amwa.maj.record.impl.J2KComponentSizingImpl.class);
+		registerInterfaceMapping(tv.amwa.maj.record.impl.CodingStyleDefault.class, tv.amwa.maj.record.impl.CodingStyleDefaultImpl.class);
+		registerInterfaceMapping(tv.amwa.maj.record.impl.QuantizationDefault.class, tv.amwa.maj.record.impl.QuantizationDefaultImpl.class);
+		registerInterfaceMapping(tv.amwa.maj.record.impl.J2KExtendedCapabilities.class, tv.amwa.maj.record.impl.J2KExtendedCapabilitiesImpl.class);
 	}
 	
 	public final static void registerInterfaceMapping(

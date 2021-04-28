@@ -204,7 +204,6 @@ public interface AAFSpecifiedClasses {
 		GroupOfSoundfieldGroupsLabelSubDescriptorImpl.class,
 		SoundfieldGroupLabelSubDescriptorImpl.class,
 		MCALabelSubDescriptorImpl.class,
-		JPEG2000SubDescriptorImpl.class,
 		CryptographicContextImpl.class,
 		CryptographicFrameworkImpl.class,
 		AncillaryPacketsDescriptorImpl.class,

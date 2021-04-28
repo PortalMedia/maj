@@ -96,6 +96,9 @@ public enum RGBAComponentKind
      * <p>No component.</p> 
      */      
 	None ('0'), 
+	Y ('Y'), 
+	U ('U'), 
+	V ('V'),
     /** 
      * <p>Terminates the list of components.</p>
      */
@@ -133,6 +136,9 @@ public enum RGBAComponentKind
     	case 'F': return Fill;
     	case 'P': return Palette;
     	case '0': return None;
+    	case 'U': return U;
+    	case 'V': return V;
+    	case 'Y': return Y;
     	case '\u0000': return Null;
     	default: return null;
     	}

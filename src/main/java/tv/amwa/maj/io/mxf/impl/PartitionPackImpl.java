@@ -436,7 +436,7 @@ public abstract class PartitionPackImpl
 			MXFFileImpl material) throws EndOfDataException {
 
 		UL key = material.readKey();
-		System.out.println(key);
+		//System.out.println(key);
 		long length = material.readBER();
 		ByteBuffer buffer = material.read((int) length);
 		buffer.rewind();
