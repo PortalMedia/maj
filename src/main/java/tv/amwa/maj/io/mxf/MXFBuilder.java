@@ -423,6 +423,9 @@ public class MXFBuilder {
 
 		int preserveLimit = buffer.limit();
 
+		if(key.toString().equals("urn:smpte:ul:060e2b34.02060101.0d010101.01015a00")) {
+			System.out.println("Here");
+		}
 		ClassDefinition localSetClass = ClassDefinitionImpl.forAUID(key);
 		//TODO: localSetClass.set
 		if (localSetClass == null) {
@@ -461,6 +464,9 @@ public class MXFBuilder {
 			PropertyDefinition property = null;
 			AUID propertyKey = null;
 			short tag = buffer.getShort();
+			if(tag == 32801) {
+				int i =0;
+			}
 			int length = 0;
 
 			try {
@@ -523,6 +529,9 @@ public class MXFBuilder {
 
 			PropertyValue propertyValue = null;
 			try {
+				if(property.getName().equals("J2CLayout")) {
+					int i = 0;
+				}
 				propertyValue = propertyType.createFromBytes(buffer);
 				if (propertyValue == null)
 					throw new NullPointerException("Unexpected null property value created when parsing bytes.");

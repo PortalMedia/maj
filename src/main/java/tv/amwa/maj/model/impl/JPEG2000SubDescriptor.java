@@ -1,7 +1,13 @@
 package tv.amwa.maj.model.impl;
 
+import tv.amwa.maj.misctype.RGBALayout;
+import tv.amwa.maj.model.CDCIDescriptor;
 import tv.amwa.maj.model.SubDescriptor;
+import tv.amwa.maj.record.RGBAComponent;
+import tv.amwa.maj.record.impl.CodingStyleDefault;
 import tv.amwa.maj.record.impl.J2KComponentSizing;
+import tv.amwa.maj.record.impl.J2KExtendedCapabilities;
+import tv.amwa.maj.record.impl.QuantizationDefault;
 
 public interface JPEG2000SubDescriptor extends SubDescriptor {
 
@@ -47,7 +53,34 @@ public interface JPEG2000SubDescriptor extends SubDescriptor {
 
 	void setPictureComponentSizing(J2KComponentSizing[] pictureComponentSizing)
 			throws NullPointerException, IllegalArgumentException;
-
+	
 	J2KComponentSizing[] getPictureComponentSizing();
+	
+	CodingStyleDefault getCodingStyleDefault();
+	
+	void setCodingStyleDefault(
+			CodingStyleDefault  codingStyleDefault);
+	
+
+	QuantizationDefault getQuantizationDefault();
+	
+	void setQuantizationDefault(
+			QuantizationDefault  quantizationDefault);
+
+	RGBAComponent[] getJ2CLayout();
+
+	void setJ2CLayoutFromStream(Object[] j2cLayoutArray);
+
+	short[] getJ2KProfile();
+
+	void setJ2KProfile(short[] j2kProfile);
+
+	void setJ2KCorrespondingProfile(short[] j2kCorrespondingProfile);
+
+	short[] setJ2KCorrespondingProfile();
+
+	void setJ2KExtendedCapabilities(J2KExtendedCapabilities j2kExtendedCapabilities);
+
+	J2KExtendedCapabilities getJ2KExtendedCapabilities();
 
 }
